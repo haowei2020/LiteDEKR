@@ -1,0 +1,36 @@
+Annotation Type: keypoints
+loading annotations into memory...
+Done (t=1.71s)
+creating index...
+index created!
+Loading and preparing results...     
+DONE (t=0.45s)
+creating index...
+index created!
+evaluate category: person
+Running per image evaluation...      
+DONE (t=16.03s).
+Accumulating evaluation results...   
+DONE (t=0.43s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets= 20 ] = 0.647
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets= 20 ] = 0.861
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets= 20 ] = 0.711
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets= 20 ] = 0.580
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets= 20 ] = 0.741
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 20 ] = 0.689
+ Average Recall     (AR) @[ IoU=0.50      | area=   all | maxDets= 20 ] = 0.881
+ Average Recall     (AR) @[ IoU=0.75      | area=   all | maxDets= 20 ] = 0.747
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets= 20 ] = 0.613
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets= 20 ] = 0.794
+overall performance
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets= 20 ] = 0.647
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets= 20 ] = 0.861
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets= 20 ] = 0.711
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets= 20 ] = 0.580
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets= 20 ] = 0.741
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 20 ] = 0.689
+ Average Recall     (AR) @[ IoU=0.50      | area=   all | maxDets= 20 ] = 0.881
+ Average Recall     (AR) @[ IoU=0.75      | area=   all | maxDets= 20 ] = 0.747
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets= 20 ] = 0.613
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets= 20 ] = 0.794
+Done (t=20.80s)
