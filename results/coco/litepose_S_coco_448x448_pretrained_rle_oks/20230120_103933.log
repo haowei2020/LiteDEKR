@@ -1,0 +1,1681 @@
+2023-01-20 10:39:33,848 - mmpose - INFO - Environment info:
+------------------------------------------------------------
+sys.platform: linux
+Python: 3.8.16 (default, Jan 17 2023, 23:13:24) [GCC 11.2.0]
+CUDA available: True
+GPU 0,1,2,3,4,5,6,7: Tesla V100-PCIE-16GB-LS
+CUDA_HOME: /usr/local/cuda
+NVCC: Cuda compilation tools, release 11.0, V11.0.221
+GCC: gcc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0
+PyTorch: 1.8.1+cu111
+PyTorch compiling details: PyTorch built with:
+  - GCC 7.3
+  - C++ Version: 201402
+  - Intel(R) Math Kernel Library Version 2020.0.0 Product Build 20191122 for Intel(R) 64 architecture applications
+  - Intel(R) MKL-DNN v1.7.0 (Git Hash 7aed236906b1f7a05c0917e5257a1af05e9ff683)
+  - OpenMP 201511 (a.k.a. OpenMP 4.5)
+  - NNPACK is enabled
+  - CPU capability usage: AVX2
+  - CUDA Runtime 11.1
+  - NVCC architecture flags: -gencode;arch=compute_37,code=sm_37;-gencode;arch=compute_50,code=sm_50;-gencode;arch=compute_60,code=sm_60;-gencode;arch=compute_70,code=sm_70;-gencode;arch=compute_75,code=sm_75;-gencode;arch=compute_80,code=sm_80;-gencode;arch=compute_86,code=sm_86
+  - CuDNN 8.0.5
+  - Magma 2.5.2
+  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, CUDA_VERSION=11.1, CUDNN_VERSION=8.0.5, CXX_COMPILER=/opt/rh/devtoolset-7/root/usr/bin/c++, CXX_FLAGS= -Wno-deprecated -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -fopenmp -DNDEBUG -DUSE_KINETO -DUSE_FBGEMM -DUSE_QNNPACK -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -O2 -fPIC -Wno-narrowing -Wall -Wextra -Werror=return-type -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-sign-compare -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function -Wno-unused-result -Wno-unused-local-typedefs -Wno-strict-overflow -Wno-strict-aliasing -Wno-error=deprecated-declarations -Wno-stringop-overflow -Wno-psabi -Wno-error=pedantic -Wno-error=redundant-decls -Wno-error=old-style-cast -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, PERF_WITH_AVX512=1, TORCH_VERSION=1.8.1, USE_CUDA=ON, USE_CUDNN=ON, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, 
+
+TorchVision: 0.9.1+cu111
+OpenCV: 4.7.0
+MMCV: 1.7.1
+MMCV Compiler: GCC 7.3
+MMCV CUDA Compiler: 11.1
+MMPose: 0.29.0+1f11d6c
+------------------------------------------------------------
+
+2023-01-20 10:39:33,849 - mmpose - INFO - Distributed training: True
+2023-01-20 10:39:42,553 - mmpose - INFO - Config:
+checkpoint_config = dict(interval=20)
+log_config = dict(interval=500, hooks=[dict(type='TextLoggerHook')])
+log_level = 'INFO'
+load_from = None
+resume_from = '/workspace/mmpose/out/litedekr/litepose_S_coco_448x448_pretrained_rle_oks/epoch_40.pth'
+dist_params = dict(backend='nccl')
+workflow = [('train', 1)]
+opencv_num_threads = 0
+mp_start_method = 'fork'
+dataset_info = dict(
+    dataset_name='coco',
+    paper_info=dict(
+        author=
+        'Lin, Tsung-Yi and Maire, Michael and Belongie, Serge and Hays, James and Perona, Pietro and Ramanan, Deva and Doll{\'a}r, Piotr and Zitnick, C Lawrence',
+        title='Microsoft coco: Common objects in context',
+        container='European conference on computer vision',
+        year='2014',
+        homepage='http://cocodataset.org/'),
+    keypoint_info=dict({
+        0:
+        dict(name='nose', id=0, color=[51, 153, 255], type='upper', swap=''),
+        1:
+        dict(
+            name='left_eye',
+            id=1,
+            color=[51, 153, 255],
+            type='upper',
+            swap='right_eye'),
+        2:
+        dict(
+            name='right_eye',
+            id=2,
+            color=[51, 153, 255],
+            type='upper',
+            swap='left_eye'),
+        3:
+        dict(
+            name='left_ear',
+            id=3,
+            color=[51, 153, 255],
+            type='upper',
+            swap='right_ear'),
+        4:
+        dict(
+            name='right_ear',
+            id=4,
+            color=[51, 153, 255],
+            type='upper',
+            swap='left_ear'),
+        5:
+        dict(
+            name='left_shoulder',
+            id=5,
+            color=[0, 255, 0],
+            type='upper',
+            swap='right_shoulder'),
+        6:
+        dict(
+            name='right_shoulder',
+            id=6,
+            color=[255, 128, 0],
+            type='upper',
+            swap='left_shoulder'),
+        7:
+        dict(
+            name='left_elbow',
+            id=7,
+            color=[0, 255, 0],
+            type='upper',
+            swap='right_elbow'),
+        8:
+        dict(
+            name='right_elbow',
+            id=8,
+            color=[255, 128, 0],
+            type='upper',
+            swap='left_elbow'),
+        9:
+        dict(
+            name='left_wrist',
+            id=9,
+            color=[0, 255, 0],
+            type='upper',
+            swap='right_wrist'),
+        10:
+        dict(
+            name='right_wrist',
+            id=10,
+            color=[255, 128, 0],
+            type='upper',
+            swap='left_wrist'),
+        11:
+        dict(
+            name='left_hip',
+            id=11,
+            color=[0, 255, 0],
+            type='lower',
+            swap='right_hip'),
+        12:
+        dict(
+            name='right_hip',
+            id=12,
+            color=[255, 128, 0],
+            type='lower',
+            swap='left_hip'),
+        13:
+        dict(
+            name='left_knee',
+            id=13,
+            color=[0, 255, 0],
+            type='lower',
+            swap='right_knee'),
+        14:
+        dict(
+            name='right_knee',
+            id=14,
+            color=[255, 128, 0],
+            type='lower',
+            swap='left_knee'),
+        15:
+        dict(
+            name='left_ankle',
+            id=15,
+            color=[0, 255, 0],
+            type='lower',
+            swap='right_ankle'),
+        16:
+        dict(
+            name='right_ankle',
+            id=16,
+            color=[255, 128, 0],
+            type='lower',
+            swap='left_ankle')
+    }),
+    skeleton_info=dict({
+        0:
+        dict(link=('left_ankle', 'left_knee'), id=0, color=[0, 255, 0]),
+        1:
+        dict(link=('left_knee', 'left_hip'), id=1, color=[0, 255, 0]),
+        2:
+        dict(link=('right_ankle', 'right_knee'), id=2, color=[255, 128, 0]),
+        3:
+        dict(link=('right_knee', 'right_hip'), id=3, color=[255, 128, 0]),
+        4:
+        dict(link=('left_hip', 'right_hip'), id=4, color=[51, 153, 255]),
+        5:
+        dict(link=('left_shoulder', 'left_hip'), id=5, color=[51, 153, 255]),
+        6:
+        dict(link=('right_shoulder', 'right_hip'), id=6, color=[51, 153, 255]),
+        7:
+        dict(
+            link=('left_shoulder', 'right_shoulder'),
+            id=7,
+            color=[51, 153, 255]),
+        8:
+        dict(link=('left_shoulder', 'left_elbow'), id=8, color=[0, 255, 0]),
+        9:
+        dict(
+            link=('right_shoulder', 'right_elbow'), id=9, color=[255, 128, 0]),
+        10:
+        dict(link=('left_elbow', 'left_wrist'), id=10, color=[0, 255, 0]),
+        11:
+        dict(link=('right_elbow', 'right_wrist'), id=11, color=[255, 128, 0]),
+        12:
+        dict(link=('left_eye', 'right_eye'), id=12, color=[51, 153, 255]),
+        13:
+        dict(link=('nose', 'left_eye'), id=13, color=[51, 153, 255]),
+        14:
+        dict(link=('nose', 'right_eye'), id=14, color=[51, 153, 255]),
+        15:
+        dict(link=('left_eye', 'left_ear'), id=15, color=[51, 153, 255]),
+        16:
+        dict(link=('right_eye', 'right_ear'), id=16, color=[51, 153, 255]),
+        17:
+        dict(link=('left_ear', 'left_shoulder'), id=17, color=[51, 153, 255]),
+        18:
+        dict(
+            link=('right_ear', 'right_shoulder'), id=18, color=[51, 153, 255])
+    }),
+    joint_weights=[
+        1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.2, 1.2, 1.5, 1.5, 1.0, 1.0, 1.2,
+        1.2, 1.5, 1.5
+    ],
+    sigmas=[
+        0.026, 0.025, 0.025, 0.035, 0.035, 0.079, 0.079, 0.072, 0.072, 0.062,
+        0.062, 0.107, 0.107, 0.087, 0.087, 0.089, 0.089
+    ])
+evaluation = dict(interval=20, metric='mAP', save_best='AP')
+optimizer = dict(type='Adam', lr=0.001)
+optimizer_config = dict(grad_clip=None)
+lr_config = dict(
+    policy='step',
+    warmup='linear',
+    warmup_iters=500,
+    warmup_ratio=0.001,
+    step=[40, 60, 90])
+total_epochs = 120
+channel_cfg = dict(
+    dataset_joints=17,
+    dataset_channel=[[
+        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
+    ]],
+    inference_channel=[
+        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
+    ])
+data_cfg = dict(
+    image_size=448,
+    base_size=256,
+    base_sigma=2,
+    heatmap_size=[112, 224],
+    num_joints=17,
+    dataset_channel=[[
+        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
+    ]],
+    inference_channel=[
+        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
+    ],
+    num_scales=2,
+    scale_aware_sigma=False)
+model = dict(
+    type='DisentangledKeypointRegressorWithRLE',
+    pretrained='/workspace/mmpose/LitePose-Auto-S-COCO.pth.tar',
+    backbone=dict(
+        type='LitePose',
+        cfg_arch=dict(
+            input_channel=16,
+            backbone_setting=[
+                dict(
+                    num_blocks=6,
+                    stride=2,
+                    channel=16,
+                    block_setting=[[6, 7], [6, 7], [6, 7], [6, 7], [6, 7],
+                                   [6, 7]]),
+                dict(
+                    num_blocks=8,
+                    stride=2,
+                    channel=32,
+                    block_setting=[[6, 7], [6, 7], [6, 7], [6, 7], [6, 7],
+                                   [6, 7], [6, 7], [6, 7]]),
+                dict(
+                    num_blocks=10,
+                    stride=2,
+                    channel=48,
+                    block_setting=[[6, 7], [6, 7], [6, 7], [6, 7], [6, 7],
+                                   [6, 7], [6, 7], [6, 7], [6, 7], [6, 7]]),
+                dict(
+                    num_blocks=10,
+                    stride=1,
+                    channel=120,
+                    block_setting=[[6, 7], [6, 7], [6, 7], [6, 7], [6, 7],
+                                   [6, 7], [6, 7], [6, 7], [6, 7], [6, 7]])
+            ]),
+        width_mult=1.0,
+        round_nearest=8,
+        frozen_stages=-1,
+        norm_eval=False),
+    keypoint_head=dict(
+        type='DEKRHeadWithRLELoss_new',
+        in_channels=(16, 32, 48, 120),
+        in_index=(1, 2, 3, 4),
+        num_heatmap_filters=32,
+        num_joints=17,
+        input_transform='resize_concat',
+        heatmap_loss=dict(
+            type='JointsMSELoss', use_target_weight=True, loss_weight=1.0),
+        offset_loss=dict(
+            type='RLELossForBottomUp',
+            use_target_weight=True,
+            supervise_empty=False,
+            residual=True,
+            q_dis='laplace',
+            loss_weight=0.004),
+        oks_loss=dict(type='OKSLoss', num_joints=17, loss_weight=1.0),
+        use_keypoint_heatmaps=True),
+    train_cfg=dict(),
+    test_cfg=dict(
+        num_joints=17,
+        max_num_people=30,
+        project2image=False,
+        align_corners=False,
+        max_pool_kernel=5,
+        use_sigma_as_score=False,
+        use_nms=True,
+        nms_dist_thr=0.05,
+        nms_joints_thr=8,
+        keypoint_threshold=0.1,
+        rescore_cfg=dict(
+            in_channels=74,
+            norm_indexes=(5, 6),
+            pretrained=
+            'https://download.openmmlab.com/mmpose/pretrain_models/kpt_rescore_coco-33d58c5c.pth'
+        ),
+        flip_test=True,
+        use_udp=False,
+        refine_keypoint_scores_by_keypoint_heatmaps=True))
+train_pipeline = [
+    dict(type='LoadImageFromFile'),
+    dict(
+        type='BottomUpRandomAffine',
+        rot_factor=30,
+        scale_factor=[0.75, 1.5],
+        scale_type='short',
+        trans_factor=40,
+        use_udp=False),
+    dict(type='BottomUpRandomFlip', flip_prob=0.5),
+    dict(type='ToTensor'),
+    dict(
+        type='NormalizeTensor',
+        mean=[0.485, 0.456, 0.406],
+        std=[0.229, 0.224, 0.225]),
+    dict(type='GetKeypointCenterArea'),
+    dict(
+        type='BottomUpGenerateHeatmapTarget',
+        sigma=(2, 4),
+        bg_weight=0.1,
+        gen_center_heatmap=True,
+        use_udp=False),
+    dict(type='BottomUpGenerateOffsetTarget', radius=4),
+    dict(
+        type='Collect',
+        keys=['img', 'heatmaps', 'masks', 'offsets', 'offset_weights'],
+        meta_keys=[])
+]
+val_pipeline = [
+    dict(type='LoadImageFromFile'),
+    dict(type='BottomUpGetImgSize', test_scale_factor=[1], use_udp=False),
+    dict(
+        type='BottomUpResizeAlign',
+        transforms=[
+            dict(type='ToTensor'),
+            dict(
+                type='NormalizeTensor',
+                mean=[0.485, 0.456, 0.406],
+                std=[0.229, 0.224, 0.225])
+        ],
+        use_udp=False),
+    dict(
+        type='Collect',
+        keys=['img'],
+        meta_keys=[
+            'image_file', 'aug_data', 'test_scale_factor', 'base_size',
+            'center', 'scale', 'flip_index', 'num_joints', 'skeleton',
+            'image_size', 'heatmap_size'
+        ])
+]
+test_pipeline = [
+    dict(type='LoadImageFromFile'),
+    dict(type='BottomUpGetImgSize', test_scale_factor=[1], use_udp=False),
+    dict(
+        type='BottomUpResizeAlign',
+        transforms=[
+            dict(type='ToTensor'),
+            dict(
+                type='NormalizeTensor',
+                mean=[0.485, 0.456, 0.406],
+                std=[0.229, 0.224, 0.225])
+        ],
+        use_udp=False),
+    dict(
+        type='Collect',
+        keys=['img'],
+        meta_keys=[
+            'image_file', 'aug_data', 'test_scale_factor', 'base_size',
+            'center', 'scale', 'flip_index', 'num_joints', 'skeleton',
+            'image_size', 'heatmap_size'
+        ])
+]
+data_root = '/workspace/mmpose/data/coco'
+data = dict(
+    workers_per_gpu=0,
+    train_dataloader=dict(samples_per_gpu=3),
+    val_dataloader=dict(samples_per_gpu=1),
+    test_dataloader=dict(samples_per_gpu=1),
+    train=dict(
+        type='BottomUpCocoDataset',
+        ann_file=
+        '/workspace/mmpose/data/coco/annotations/person_keypoints_train2017.json',
+        img_prefix='/workspace/mmpose/data/coco/train2017/',
+        data_cfg=dict(
+            image_size=448,
+            base_size=256,
+            base_sigma=2,
+            heatmap_size=[112, 224],
+            num_joints=17,
+            dataset_channel=[[
+                0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
+            ]],
+            inference_channel=[
+                0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
+            ],
+            num_scales=2,
+            scale_aware_sigma=False),
+        pipeline=[
+            dict(type='LoadImageFromFile'),
+            dict(
+                type='BottomUpRandomAffine',
+                rot_factor=30,
+                scale_factor=[0.75, 1.5],
+                scale_type='short',
+                trans_factor=40,
+                use_udp=False),
+            dict(type='BottomUpRandomFlip', flip_prob=0.5),
+            dict(type='ToTensor'),
+            dict(
+                type='NormalizeTensor',
+                mean=[0.485, 0.456, 0.406],
+                std=[0.229, 0.224, 0.225]),
+            dict(type='GetKeypointCenterArea'),
+            dict(
+                type='BottomUpGenerateHeatmapTarget',
+                sigma=(2, 4),
+                bg_weight=0.1,
+                gen_center_heatmap=True,
+                use_udp=False),
+            dict(type='BottomUpGenerateOffsetTarget', radius=4),
+            dict(
+                type='Collect',
+                keys=['img', 'heatmaps', 'masks', 'offsets', 'offset_weights'],
+                meta_keys=[])
+        ],
+        dataset_info=dict(
+            dataset_name='coco',
+            paper_info=dict(
+                author=
+                'Lin, Tsung-Yi and Maire, Michael and Belongie, Serge and Hays, James and Perona, Pietro and Ramanan, Deva and Doll{\'a}r, Piotr and Zitnick, C Lawrence',
+                title='Microsoft coco: Common objects in context',
+                container='European conference on computer vision',
+                year='2014',
+                homepage='http://cocodataset.org/'),
+            keypoint_info=dict({
+                0:
+                dict(
+                    name='nose',
+                    id=0,
+                    color=[51, 153, 255],
+                    type='upper',
+                    swap=''),
+                1:
+                dict(
+                    name='left_eye',
+                    id=1,
+                    color=[51, 153, 255],
+                    type='upper',
+                    swap='right_eye'),
+                2:
+                dict(
+                    name='right_eye',
+                    id=2,
+                    color=[51, 153, 255],
+                    type='upper',
+                    swap='left_eye'),
+                3:
+                dict(
+                    name='left_ear',
+                    id=3,
+                    color=[51, 153, 255],
+                    type='upper',
+                    swap='right_ear'),
+                4:
+                dict(
+                    name='right_ear',
+                    id=4,
+                    color=[51, 153, 255],
+                    type='upper',
+                    swap='left_ear'),
+                5:
+                dict(
+                    name='left_shoulder',
+                    id=5,
+                    color=[0, 255, 0],
+                    type='upper',
+                    swap='right_shoulder'),
+                6:
+                dict(
+                    name='right_shoulder',
+                    id=6,
+                    color=[255, 128, 0],
+                    type='upper',
+                    swap='left_shoulder'),
+                7:
+                dict(
+                    name='left_elbow',
+                    id=7,
+                    color=[0, 255, 0],
+                    type='upper',
+                    swap='right_elbow'),
+                8:
+                dict(
+                    name='right_elbow',
+                    id=8,
+                    color=[255, 128, 0],
+                    type='upper',
+                    swap='left_elbow'),
+                9:
+                dict(
+                    name='left_wrist',
+                    id=9,
+                    color=[0, 255, 0],
+                    type='upper',
+                    swap='right_wrist'),
+                10:
+                dict(
+                    name='right_wrist',
+                    id=10,
+                    color=[255, 128, 0],
+                    type='upper',
+                    swap='left_wrist'),
+                11:
+                dict(
+                    name='left_hip',
+                    id=11,
+                    color=[0, 255, 0],
+                    type='lower',
+                    swap='right_hip'),
+                12:
+                dict(
+                    name='right_hip',
+                    id=12,
+                    color=[255, 128, 0],
+                    type='lower',
+                    swap='left_hip'),
+                13:
+                dict(
+                    name='left_knee',
+                    id=13,
+                    color=[0, 255, 0],
+                    type='lower',
+                    swap='right_knee'),
+                14:
+                dict(
+                    name='right_knee',
+                    id=14,
+                    color=[255, 128, 0],
+                    type='lower',
+                    swap='left_knee'),
+                15:
+                dict(
+                    name='left_ankle',
+                    id=15,
+                    color=[0, 255, 0],
+                    type='lower',
+                    swap='right_ankle'),
+                16:
+                dict(
+                    name='right_ankle',
+                    id=16,
+                    color=[255, 128, 0],
+                    type='lower',
+                    swap='left_ankle')
+            }),
+            skeleton_info=dict({
+                0:
+                dict(
+                    link=('left_ankle', 'left_knee'), id=0, color=[0, 255, 0]),
+                1:
+                dict(link=('left_knee', 'left_hip'), id=1, color=[0, 255, 0]),
+                2:
+                dict(
+                    link=('right_ankle', 'right_knee'),
+                    id=2,
+                    color=[255, 128, 0]),
+                3:
+                dict(
+                    link=('right_knee', 'right_hip'),
+                    id=3,
+                    color=[255, 128, 0]),
+                4:
+                dict(
+                    link=('left_hip', 'right_hip'), id=4, color=[51, 153,
+                                                                 255]),
+                5:
+                dict(
+                    link=('left_shoulder', 'left_hip'),
+                    id=5,
+                    color=[51, 153, 255]),
+                6:
+                dict(
+                    link=('right_shoulder', 'right_hip'),
+                    id=6,
+                    color=[51, 153, 255]),
+                7:
+                dict(
+                    link=('left_shoulder', 'right_shoulder'),
+                    id=7,
+                    color=[51, 153, 255]),
+                8:
+                dict(
+                    link=('left_shoulder', 'left_elbow'),
+                    id=8,
+                    color=[0, 255, 0]),
+                9:
+                dict(
+                    link=('right_shoulder', 'right_elbow'),
+                    id=9,
+                    color=[255, 128, 0]),
+                10:
+                dict(
+                    link=('left_elbow', 'left_wrist'),
+                    id=10,
+                    color=[0, 255, 0]),
+                11:
+                dict(
+                    link=('right_elbow', 'right_wrist'),
+                    id=11,
+                    color=[255, 128, 0]),
+                12:
+                dict(
+                    link=('left_eye', 'right_eye'),
+                    id=12,
+                    color=[51, 153, 255]),
+                13:
+                dict(link=('nose', 'left_eye'), id=13, color=[51, 153, 255]),
+                14:
+                dict(link=('nose', 'right_eye'), id=14, color=[51, 153, 255]),
+                15:
+                dict(
+                    link=('left_eye', 'left_ear'), id=15, color=[51, 153,
+                                                                 255]),
+                16:
+                dict(
+                    link=('right_eye', 'right_ear'),
+                    id=16,
+                    color=[51, 153, 255]),
+                17:
+                dict(
+                    link=('left_ear', 'left_shoulder'),
+                    id=17,
+                    color=[51, 153, 255]),
+                18:
+                dict(
+                    link=('right_ear', 'right_shoulder'),
+                    id=18,
+                    color=[51, 153, 255])
+            }),
+            joint_weights=[
+                1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.2, 1.2, 1.5, 1.5, 1.0,
+                1.0, 1.2, 1.2, 1.5, 1.5
+            ],
+            sigmas=[
+                0.026, 0.025, 0.025, 0.035, 0.035, 0.079, 0.079, 0.072, 0.072,
+                0.062, 0.062, 0.107, 0.107, 0.087, 0.087, 0.089, 0.089
+            ])),
+    val=dict(
+        type='BottomUpCocoDataset',
+        ann_file=
+        '/workspace/mmpose/data/coco/annotations/person_keypoints_val2017.json',
+        img_prefix='/workspace/mmpose/data/coco/val2017/',
+        data_cfg=dict(
+            image_size=448,
+            base_size=256,
+            base_sigma=2,
+            heatmap_size=[112, 224],
+            num_joints=17,
+            dataset_channel=[[
+                0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
+            ]],
+            inference_channel=[
+                0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
+            ],
+            num_scales=2,
+            scale_aware_sigma=False),
+        pipeline=[
+            dict(type='LoadImageFromFile'),
+            dict(
+                type='BottomUpGetImgSize',
+                test_scale_factor=[1],
+                use_udp=False),
+            dict(
+                type='BottomUpResizeAlign',
+                transforms=[
+                    dict(type='ToTensor'),
+                    dict(
+                        type='NormalizeTensor',
+                        mean=[0.485, 0.456, 0.406],
+                        std=[0.229, 0.224, 0.225])
+                ],
+                use_udp=False),
+            dict(
+                type='Collect',
+                keys=['img'],
+                meta_keys=[
+                    'image_file', 'aug_data', 'test_scale_factor', 'base_size',
+                    'center', 'scale', 'flip_index', 'num_joints', 'skeleton',
+                    'image_size', 'heatmap_size'
+                ])
+        ],
+        dataset_info=dict(
+            dataset_name='coco',
+            paper_info=dict(
+                author=
+                'Lin, Tsung-Yi and Maire, Michael and Belongie, Serge and Hays, James and Perona, Pietro and Ramanan, Deva and Doll{\'a}r, Piotr and Zitnick, C Lawrence',
+                title='Microsoft coco: Common objects in context',
+                container='European conference on computer vision',
+                year='2014',
+                homepage='http://cocodataset.org/'),
+            keypoint_info=dict({
+                0:
+                dict(
+                    name='nose',
+                    id=0,
+                    color=[51, 153, 255],
+                    type='upper',
+                    swap=''),
+                1:
+                dict(
+                    name='left_eye',
+                    id=1,
+                    color=[51, 153, 255],
+                    type='upper',
+                    swap='right_eye'),
+                2:
+                dict(
+                    name='right_eye',
+                    id=2,
+                    color=[51, 153, 255],
+                    type='upper',
+                    swap='left_eye'),
+                3:
+                dict(
+                    name='left_ear',
+                    id=3,
+                    color=[51, 153, 255],
+                    type='upper',
+                    swap='right_ear'),
+                4:
+                dict(
+                    name='right_ear',
+                    id=4,
+                    color=[51, 153, 255],
+                    type='upper',
+                    swap='left_ear'),
+                5:
+                dict(
+                    name='left_shoulder',
+                    id=5,
+                    color=[0, 255, 0],
+                    type='upper',
+                    swap='right_shoulder'),
+                6:
+                dict(
+                    name='right_shoulder',
+                    id=6,
+                    color=[255, 128, 0],
+                    type='upper',
+                    swap='left_shoulder'),
+                7:
+                dict(
+                    name='left_elbow',
+                    id=7,
+                    color=[0, 255, 0],
+                    type='upper',
+                    swap='right_elbow'),
+                8:
+                dict(
+                    name='right_elbow',
+                    id=8,
+                    color=[255, 128, 0],
+                    type='upper',
+                    swap='left_elbow'),
+                9:
+                dict(
+                    name='left_wrist',
+                    id=9,
+                    color=[0, 255, 0],
+                    type='upper',
+                    swap='right_wrist'),
+                10:
+                dict(
+                    name='right_wrist',
+                    id=10,
+                    color=[255, 128, 0],
+                    type='upper',
+                    swap='left_wrist'),
+                11:
+                dict(
+                    name='left_hip',
+                    id=11,
+                    color=[0, 255, 0],
+                    type='lower',
+                    swap='right_hip'),
+                12:
+                dict(
+                    name='right_hip',
+                    id=12,
+                    color=[255, 128, 0],
+                    type='lower',
+                    swap='left_hip'),
+                13:
+                dict(
+                    name='left_knee',
+                    id=13,
+                    color=[0, 255, 0],
+                    type='lower',
+                    swap='right_knee'),
+                14:
+                dict(
+                    name='right_knee',
+                    id=14,
+                    color=[255, 128, 0],
+                    type='lower',
+                    swap='left_knee'),
+                15:
+                dict(
+                    name='left_ankle',
+                    id=15,
+                    color=[0, 255, 0],
+                    type='lower',
+                    swap='right_ankle'),
+                16:
+                dict(
+                    name='right_ankle',
+                    id=16,
+                    color=[255, 128, 0],
+                    type='lower',
+                    swap='left_ankle')
+            }),
+            skeleton_info=dict({
+                0:
+                dict(
+                    link=('left_ankle', 'left_knee'), id=0, color=[0, 255, 0]),
+                1:
+                dict(link=('left_knee', 'left_hip'), id=1, color=[0, 255, 0]),
+                2:
+                dict(
+                    link=('right_ankle', 'right_knee'),
+                    id=2,
+                    color=[255, 128, 0]),
+                3:
+                dict(
+                    link=('right_knee', 'right_hip'),
+                    id=3,
+                    color=[255, 128, 0]),
+                4:
+                dict(
+                    link=('left_hip', 'right_hip'), id=4, color=[51, 153,
+                                                                 255]),
+                5:
+                dict(
+                    link=('left_shoulder', 'left_hip'),
+                    id=5,
+                    color=[51, 153, 255]),
+                6:
+                dict(
+                    link=('right_shoulder', 'right_hip'),
+                    id=6,
+                    color=[51, 153, 255]),
+                7:
+                dict(
+                    link=('left_shoulder', 'right_shoulder'),
+                    id=7,
+                    color=[51, 153, 255]),
+                8:
+                dict(
+                    link=('left_shoulder', 'left_elbow'),
+                    id=8,
+                    color=[0, 255, 0]),
+                9:
+                dict(
+                    link=('right_shoulder', 'right_elbow'),
+                    id=9,
+                    color=[255, 128, 0]),
+                10:
+                dict(
+                    link=('left_elbow', 'left_wrist'),
+                    id=10,
+                    color=[0, 255, 0]),
+                11:
+                dict(
+                    link=('right_elbow', 'right_wrist'),
+                    id=11,
+                    color=[255, 128, 0]),
+                12:
+                dict(
+                    link=('left_eye', 'right_eye'),
+                    id=12,
+                    color=[51, 153, 255]),
+                13:
+                dict(link=('nose', 'left_eye'), id=13, color=[51, 153, 255]),
+                14:
+                dict(link=('nose', 'right_eye'), id=14, color=[51, 153, 255]),
+                15:
+                dict(
+                    link=('left_eye', 'left_ear'), id=15, color=[51, 153,
+                                                                 255]),
+                16:
+                dict(
+                    link=('right_eye', 'right_ear'),
+                    id=16,
+                    color=[51, 153, 255]),
+                17:
+                dict(
+                    link=('left_ear', 'left_shoulder'),
+                    id=17,
+                    color=[51, 153, 255]),
+                18:
+                dict(
+                    link=('right_ear', 'right_shoulder'),
+                    id=18,
+                    color=[51, 153, 255])
+            }),
+            joint_weights=[
+                1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.2, 1.2, 1.5, 1.5, 1.0,
+                1.0, 1.2, 1.2, 1.5, 1.5
+            ],
+            sigmas=[
+                0.026, 0.025, 0.025, 0.035, 0.035, 0.079, 0.079, 0.072, 0.072,
+                0.062, 0.062, 0.107, 0.107, 0.087, 0.087, 0.089, 0.089
+            ])),
+    test=dict(
+        type='BottomUpCocoDataset',
+        ann_file=
+        '/workspace/mmpose/data/coco/annotations/person_keypoints_val2017.json',
+        img_prefix='/workspace/mmpose/data/coco/val2017/',
+        data_cfg=dict(
+            image_size=448,
+            base_size=256,
+            base_sigma=2,
+            heatmap_size=[112, 224],
+            num_joints=17,
+            dataset_channel=[[
+                0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
+            ]],
+            inference_channel=[
+                0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
+            ],
+            num_scales=2,
+            scale_aware_sigma=False),
+        pipeline=[
+            dict(type='LoadImageFromFile'),
+            dict(
+                type='BottomUpGetImgSize',
+                test_scale_factor=[1],
+                use_udp=False),
+            dict(
+                type='BottomUpResizeAlign',
+                transforms=[
+                    dict(type='ToTensor'),
+                    dict(
+                        type='NormalizeTensor',
+                        mean=[0.485, 0.456, 0.406],
+                        std=[0.229, 0.224, 0.225])
+                ],
+                use_udp=False),
+            dict(
+                type='Collect',
+                keys=['img'],
+                meta_keys=[
+                    'image_file', 'aug_data', 'test_scale_factor', 'base_size',
+                    'center', 'scale', 'flip_index', 'num_joints', 'skeleton',
+                    'image_size', 'heatmap_size'
+                ])
+        ],
+        dataset_info=dict(
+            dataset_name='coco',
+            paper_info=dict(
+                author=
+                'Lin, Tsung-Yi and Maire, Michael and Belongie, Serge and Hays, James and Perona, Pietro and Ramanan, Deva and Doll{\'a}r, Piotr and Zitnick, C Lawrence',
+                title='Microsoft coco: Common objects in context',
+                container='European conference on computer vision',
+                year='2014',
+                homepage='http://cocodataset.org/'),
+            keypoint_info=dict({
+                0:
+                dict(
+                    name='nose',
+                    id=0,
+                    color=[51, 153, 255],
+                    type='upper',
+                    swap=''),
+                1:
+                dict(
+                    name='left_eye',
+                    id=1,
+                    color=[51, 153, 255],
+                    type='upper',
+                    swap='right_eye'),
+                2:
+                dict(
+                    name='right_eye',
+                    id=2,
+                    color=[51, 153, 255],
+                    type='upper',
+                    swap='left_eye'),
+                3:
+                dict(
+                    name='left_ear',
+                    id=3,
+                    color=[51, 153, 255],
+                    type='upper',
+                    swap='right_ear'),
+                4:
+                dict(
+                    name='right_ear',
+                    id=4,
+                    color=[51, 153, 255],
+                    type='upper',
+                    swap='left_ear'),
+                5:
+                dict(
+                    name='left_shoulder',
+                    id=5,
+                    color=[0, 255, 0],
+                    type='upper',
+                    swap='right_shoulder'),
+                6:
+                dict(
+                    name='right_shoulder',
+                    id=6,
+                    color=[255, 128, 0],
+                    type='upper',
+                    swap='left_shoulder'),
+                7:
+                dict(
+                    name='left_elbow',
+                    id=7,
+                    color=[0, 255, 0],
+                    type='upper',
+                    swap='right_elbow'),
+                8:
+                dict(
+                    name='right_elbow',
+                    id=8,
+                    color=[255, 128, 0],
+                    type='upper',
+                    swap='left_elbow'),
+                9:
+                dict(
+                    name='left_wrist',
+                    id=9,
+                    color=[0, 255, 0],
+                    type='upper',
+                    swap='right_wrist'),
+                10:
+                dict(
+                    name='right_wrist',
+                    id=10,
+                    color=[255, 128, 0],
+                    type='upper',
+                    swap='left_wrist'),
+                11:
+                dict(
+                    name='left_hip',
+                    id=11,
+                    color=[0, 255, 0],
+                    type='lower',
+                    swap='right_hip'),
+                12:
+                dict(
+                    name='right_hip',
+                    id=12,
+                    color=[255, 128, 0],
+                    type='lower',
+                    swap='left_hip'),
+                13:
+                dict(
+                    name='left_knee',
+                    id=13,
+                    color=[0, 255, 0],
+                    type='lower',
+                    swap='right_knee'),
+                14:
+                dict(
+                    name='right_knee',
+                    id=14,
+                    color=[255, 128, 0],
+                    type='lower',
+                    swap='left_knee'),
+                15:
+                dict(
+                    name='left_ankle',
+                    id=15,
+                    color=[0, 255, 0],
+                    type='lower',
+                    swap='right_ankle'),
+                16:
+                dict(
+                    name='right_ankle',
+                    id=16,
+                    color=[255, 128, 0],
+                    type='lower',
+                    swap='left_ankle')
+            }),
+            skeleton_info=dict({
+                0:
+                dict(
+                    link=('left_ankle', 'left_knee'), id=0, color=[0, 255, 0]),
+                1:
+                dict(link=('left_knee', 'left_hip'), id=1, color=[0, 255, 0]),
+                2:
+                dict(
+                    link=('right_ankle', 'right_knee'),
+                    id=2,
+                    color=[255, 128, 0]),
+                3:
+                dict(
+                    link=('right_knee', 'right_hip'),
+                    id=3,
+                    color=[255, 128, 0]),
+                4:
+                dict(
+                    link=('left_hip', 'right_hip'), id=4, color=[51, 153,
+                                                                 255]),
+                5:
+                dict(
+                    link=('left_shoulder', 'left_hip'),
+                    id=5,
+                    color=[51, 153, 255]),
+                6:
+                dict(
+                    link=('right_shoulder', 'right_hip'),
+                    id=6,
+                    color=[51, 153, 255]),
+                7:
+                dict(
+                    link=('left_shoulder', 'right_shoulder'),
+                    id=7,
+                    color=[51, 153, 255]),
+                8:
+                dict(
+                    link=('left_shoulder', 'left_elbow'),
+                    id=8,
+                    color=[0, 255, 0]),
+                9:
+                dict(
+                    link=('right_shoulder', 'right_elbow'),
+                    id=9,
+                    color=[255, 128, 0]),
+                10:
+                dict(
+                    link=('left_elbow', 'left_wrist'),
+                    id=10,
+                    color=[0, 255, 0]),
+                11:
+                dict(
+                    link=('right_elbow', 'right_wrist'),
+                    id=11,
+                    color=[255, 128, 0]),
+                12:
+                dict(
+                    link=('left_eye', 'right_eye'),
+                    id=12,
+                    color=[51, 153, 255]),
+                13:
+                dict(link=('nose', 'left_eye'), id=13, color=[51, 153, 255]),
+                14:
+                dict(link=('nose', 'right_eye'), id=14, color=[51, 153, 255]),
+                15:
+                dict(
+                    link=('left_eye', 'left_ear'), id=15, color=[51, 153,
+                                                                 255]),
+                16:
+                dict(
+                    link=('right_eye', 'right_ear'),
+                    id=16,
+                    color=[51, 153, 255]),
+                17:
+                dict(
+                    link=('left_ear', 'left_shoulder'),
+                    id=17,
+                    color=[51, 153, 255]),
+                18:
+                dict(
+                    link=('right_ear', 'right_shoulder'),
+                    id=18,
+                    color=[51, 153, 255])
+            }),
+            joint_weights=[
+                1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.2, 1.2, 1.5, 1.5, 1.0,
+                1.0, 1.2, 1.2, 1.5, 1.5
+            ],
+            sigmas=[
+                0.026, 0.025, 0.025, 0.035, 0.035, 0.079, 0.079, 0.072, 0.072,
+                0.062, 0.062, 0.107, 0.107, 0.087, 0.087, 0.089, 0.089
+            ])))
+work_dir = '/workspace/mmpose/out/litedekr/litepose_S_coco_448x448_pretrained_rle_oks'
+gpu_ids = range(0, 8)
+
+2023-01-20 10:39:48,464 - mmpose - INFO - Set random seed to 42930566, deterministic: False
+2023-01-20 10:40:13,383 - mmpose - INFO - load checkpoint from local path: /workspace/mmpose/out/litedekr/litepose_S_coco_448x448_pretrained_rle_oks/epoch_40.pth
+2023-01-20 10:40:13,715 - mmpose - INFO - resumed epoch 40, iter 80160
+2023-01-20 10:40:13,718 - mmpose - INFO - Start running, host: root@90f699821803, work_dir: /workspace/mmpose/out/litedekr/litepose_S_coco_448x448_pretrained_rle_oks
+2023-01-20 10:40:13,718 - mmpose - INFO - Hooks will be executed in the following order:
+before_run:
+(VERY_HIGH   ) StepLrUpdaterHook                  
+(NORMAL      ) CheckpointHook                     
+(NORMAL      ) DistEvalHook                       
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+before_train_epoch:
+(VERY_HIGH   ) StepLrUpdaterHook                  
+(NORMAL      ) DistSamplerSeedHook                
+(NORMAL      ) DistEvalHook                       
+(LOW         ) IterTimerHook                      
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+before_train_iter:
+(VERY_HIGH   ) StepLrUpdaterHook                  
+(NORMAL      ) DistEvalHook                       
+(LOW         ) IterTimerHook                      
+ -------------------- 
+after_train_iter:
+(ABOVE_NORMAL) OptimizerHook                      
+(NORMAL      ) CheckpointHook                     
+(NORMAL      ) DistEvalHook                       
+(LOW         ) IterTimerHook                      
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+after_train_epoch:
+(NORMAL      ) CheckpointHook                     
+(NORMAL      ) DistEvalHook                       
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+before_val_epoch:
+(NORMAL      ) DistSamplerSeedHook                
+(LOW         ) IterTimerHook                      
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+before_val_iter:
+(LOW         ) IterTimerHook                      
+ -------------------- 
+after_val_iter:
+(LOW         ) IterTimerHook                      
+ -------------------- 
+after_val_epoch:
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+after_run:
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+2023-01-20 10:40:13,718 - mmpose - INFO - workflow: [('train', 1)], max: 120 epochs
+2023-01-20 10:40:13,718 - mmpose - INFO - Checkpoints will be saved to /workspace/mmpose/out/litedekr/litepose_S_coco_448x448_pretrained_rle_oks by HardDiskBackend.
+2023-01-20 10:47:48,747 - mmpose - INFO - Epoch [41][500/2672]	lr: 1.000e-04, eta: 2 days, 12:39:45, time: 0.910, data_time: 0.366, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-20 10:55:15,387 - mmpose - INFO - Epoch [41][1000/2672]	lr: 1.000e-04, eta: 2 days, 11:58:47, time: 0.893, data_time: 0.349, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 11:02:43,411 - mmpose - INFO - Epoch [41][1500/2672]	lr: 1.000e-04, eta: 2 days, 11:43:49, time: 0.896, data_time: 0.351, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-20 11:10:13,215 - mmpose - INFO - Epoch [41][2000/2672]	lr: 1.000e-04, eta: 2 days, 11:36:08, time: 0.900, data_time: 0.348, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-20 11:17:41,924 - mmpose - INFO - Epoch [41][2500/2672]	lr: 1.000e-04, eta: 2 days, 11:26:47, time: 0.897, data_time: 0.339, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 11:27:50,510 - mmpose - INFO - Epoch [42][500/2672]	lr: 1.000e-04, eta: 2 days, 8:05:09, time: 0.901, data_time: 0.345, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0018
+2023-01-20 11:35:16,051 - mmpose - INFO - Epoch [42][1000/2672]	lr: 1.000e-04, eta: 2 days, 8:19:40, time: 0.891, data_time: 0.339, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 11:42:43,244 - mmpose - INFO - Epoch [42][1500/2672]	lr: 1.000e-04, eta: 2 days, 8:30:31, time: 0.894, data_time: 0.346, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 11:50:09,472 - mmpose - INFO - Epoch [42][2000/2672]	lr: 1.000e-04, eta: 2 days, 8:36:37, time: 0.892, data_time: 0.343, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 11:57:29,590 - mmpose - INFO - Epoch [42][2500/2672]	lr: 1.000e-04, eta: 2 days, 8:35:28, time: 0.880, data_time: 0.342, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 12:07:32,185 - mmpose - INFO - Epoch [43][500/2672]	lr: 1.000e-04, eta: 2 days, 6:58:14, time: 0.902, data_time: 0.346, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0018
+2023-01-20 12:15:00,998 - mmpose - INFO - Epoch [43][1000/2672]	lr: 1.000e-04, eta: 2 days, 7:07:52, time: 0.898, data_time: 0.341, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 12:22:24,268 - mmpose - INFO - Epoch [43][1500/2672]	lr: 1.000e-04, eta: 2 days, 7:11:51, time: 0.886, data_time: 0.331, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 12:29:49,743 - mmpose - INFO - Epoch [43][2000/2672]	lr: 1.000e-04, eta: 2 days, 7:15:28, time: 0.891, data_time: 0.338, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 12:37:15,177 - mmpose - INFO - Epoch [43][2500/2672]	lr: 1.000e-04, eta: 2 days, 7:17:38, time: 0.891, data_time: 0.347, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 12:47:18,347 - mmpose - INFO - Epoch [44][500/2672]	lr: 1.000e-04, eta: 2 days, 6:10:52, time: 0.898, data_time: 0.341, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 12:54:46,634 - mmpose - INFO - Epoch [44][1000/2672]	lr: 1.000e-04, eta: 2 days, 6:15:47, time: 0.897, data_time: 0.348, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0018
+2023-01-20 13:02:15,333 - mmpose - INFO - Epoch [44][1500/2672]	lr: 1.000e-04, eta: 2 days, 6:19:33, time: 0.897, data_time: 0.341, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 13:09:39,927 - mmpose - INFO - Epoch [44][2000/2672]	lr: 1.000e-04, eta: 2 days, 6:20:38, time: 0.889, data_time: 0.347, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 13:17:00,188 - mmpose - INFO - Epoch [44][2500/2672]	lr: 1.000e-04, eta: 2 days, 6:19:19, time: 0.880, data_time: 0.353, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 13:27:02,776 - mmpose - INFO - Epoch [45][500/2672]	lr: 1.000e-04, eta: 2 days, 5:28:20, time: 0.900, data_time: 0.340, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 13:34:32,735 - mmpose - INFO - Epoch [45][1000/2672]	lr: 1.000e-04, eta: 2 days, 5:31:11, time: 0.900, data_time: 0.348, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 13:42:01,380 - mmpose - INFO - Epoch [45][1500/2672]	lr: 1.000e-04, eta: 2 days, 5:32:47, time: 0.897, data_time: 0.340, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 13:49:29,413 - mmpose - INFO - Epoch [45][2000/2672]	lr: 1.000e-04, eta: 2 days, 5:33:28, time: 0.896, data_time: 0.338, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 13:56:59,593 - mmpose - INFO - Epoch [45][2500/2672]	lr: 1.000e-04, eta: 2 days, 5:34:10, time: 0.900, data_time: 0.336, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 14:06:55,509 - mmpose - INFO - Epoch [46][500/2672]	lr: 1.000e-04, eta: 2 days, 4:51:06, time: 0.894, data_time: 0.351, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 14:14:19,768 - mmpose - INFO - Epoch [46][1000/2672]	lr: 1.000e-04, eta: 2 days, 4:50:32, time: 0.888, data_time: 0.342, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 14:21:45,275 - mmpose - INFO - Epoch [46][1500/2672]	lr: 1.000e-04, eta: 2 days, 4:49:48, time: 0.891, data_time: 0.334, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 14:29:13,221 - mmpose - INFO - Epoch [46][2000/2672]	lr: 1.000e-04, eta: 2 days, 4:49:15, time: 0.896, data_time: 0.340, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 14:36:34,953 - mmpose - INFO - Epoch [46][2500/2672]	lr: 1.000e-04, eta: 2 days, 4:46:47, time: 0.883, data_time: 0.328, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 14:46:37,341 - mmpose - INFO - Epoch [47][500/2672]	lr: 1.000e-04, eta: 2 days, 4:10:25, time: 0.899, data_time: 0.342, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 14:54:05,105 - mmpose - INFO - Epoch [47][1000/2672]	lr: 1.000e-04, eta: 2 days, 4:09:38, time: 0.896, data_time: 0.350, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 15:01:29,253 - mmpose - INFO - Epoch [47][1500/2672]	lr: 1.000e-04, eta: 2 days, 4:07:43, time: 0.888, data_time: 0.339, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 15:08:56,038 - mmpose - INFO - Epoch [47][2000/2672]	lr: 1.000e-04, eta: 2 days, 4:06:01, time: 0.894, data_time: 0.347, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 15:16:18,598 - mmpose - INFO - Epoch [47][2500/2672]	lr: 1.000e-04, eta: 2 days, 4:03:11, time: 0.885, data_time: 0.338, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 15:26:20,169 - mmpose - INFO - Epoch [48][500/2672]	lr: 1.000e-04, eta: 2 days, 3:31:10, time: 0.900, data_time: 0.355, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 15:33:42,716 - mmpose - INFO - Epoch [48][1000/2672]	lr: 1.000e-04, eta: 2 days, 3:28:34, time: 0.885, data_time: 0.335, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 15:41:06,109 - mmpose - INFO - Epoch [48][1500/2672]	lr: 1.000e-04, eta: 2 days, 3:25:52, time: 0.887, data_time: 0.342, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 15:48:29,651 - mmpose - INFO - Epoch [48][2000/2672]	lr: 1.000e-04, eta: 2 days, 3:22:59, time: 0.887, data_time: 0.333, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 15:55:55,772 - mmpose - INFO - Epoch [48][2500/2672]	lr: 1.000e-04, eta: 2 days, 3:20:20, time: 0.892, data_time: 0.335, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 16:05:47,521 - mmpose - INFO - Epoch [49][500/2672]	lr: 1.000e-04, eta: 2 days, 2:49:42, time: 0.878, data_time: 0.355, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 16:13:11,591 - mmpose - INFO - Epoch [49][1000/2672]	lr: 1.000e-04, eta: 2 days, 2:46:53, time: 0.888, data_time: 0.349, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 16:20:41,943 - mmpose - INFO - Epoch [49][1500/2672]	lr: 1.000e-04, eta: 2 days, 2:44:51, time: 0.901, data_time: 0.349, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 16:28:06,012 - mmpose - INFO - Epoch [49][2000/2672]	lr: 1.000e-04, eta: 2 days, 2:41:37, time: 0.888, data_time: 0.343, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 16:35:32,757 - mmpose - INFO - Epoch [49][2500/2672]	lr: 1.000e-04, eta: 2 days, 2:38:37, time: 0.894, data_time: 0.342, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 16:45:28,841 - mmpose - INFO - Epoch [50][500/2672]	lr: 1.000e-04, eta: 2 days, 2:11:08, time: 0.885, data_time: 0.342, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 16:52:54,996 - mmpose - INFO - Epoch [50][1000/2672]	lr: 1.000e-04, eta: 2 days, 2:08:08, time: 0.892, data_time: 0.348, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 17:00:19,221 - mmpose - INFO - Epoch [50][1500/2672]	lr: 1.000e-04, eta: 2 days, 2:04:43, time: 0.888, data_time: 0.342, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 17:07:49,483 - mmpose - INFO - Epoch [50][2000/2672]	lr: 1.000e-04, eta: 2 days, 2:01:57, time: 0.901, data_time: 0.339, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 17:15:12,191 - mmpose - INFO - Epoch [50][2500/2672]	lr: 1.000e-04, eta: 2 days, 1:58:00, time: 0.885, data_time: 0.341, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 17:25:17,643 - mmpose - INFO - Epoch [51][500/2672]	lr: 1.000e-04, eta: 2 days, 1:33:11, time: 0.894, data_time: 0.350, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 17:32:44,809 - mmpose - INFO - Epoch [51][1000/2672]	lr: 1.000e-04, eta: 2 days, 1:29:55, time: 0.894, data_time: 0.343, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 17:40:09,019 - mmpose - INFO - Epoch [51][1500/2672]	lr: 1.000e-04, eta: 2 days, 1:26:08, time: 0.888, data_time: 0.329, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 17:47:33,818 - mmpose - INFO - Epoch [51][2000/2672]	lr: 1.000e-04, eta: 2 days, 1:22:17, time: 0.890, data_time: 0.335, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 17:54:58,178 - mmpose - INFO - Epoch [51][2500/2672]	lr: 1.000e-04, eta: 2 days, 1:18:16, time: 0.889, data_time: 0.345, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 18:05:05,494 - mmpose - INFO - Epoch [52][500/2672]	lr: 1.000e-04, eta: 2 days, 0:56:05, time: 0.912, data_time: 0.345, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 18:12:29,558 - mmpose - INFO - Epoch [52][1000/2672]	lr: 1.000e-04, eta: 2 days, 0:52:05, time: 0.888, data_time: 0.356, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 18:19:56,253 - mmpose - INFO - Epoch [52][1500/2672]	lr: 1.000e-04, eta: 2 days, 0:48:16, time: 0.893, data_time: 0.341, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 18:27:19,181 - mmpose - INFO - Epoch [52][2000/2672]	lr: 1.000e-04, eta: 2 days, 0:43:56, time: 0.886, data_time: 0.338, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 18:34:41,699 - mmpose - INFO - Epoch [52][2500/2672]	lr: 1.000e-04, eta: 2 days, 0:39:27, time: 0.885, data_time: 0.338, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0017
+2023-01-20 18:44:41,634 - mmpose - INFO - Epoch [53][500/2672]	lr: 1.000e-04, eta: 2 days, 0:17:21, time: 0.890, data_time: 0.355, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 18:52:09,263 - mmpose - INFO - Epoch [53][1000/2672]	lr: 1.000e-04, eta: 2 days, 0:13:29, time: 0.895, data_time: 0.352, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 18:59:28,490 - mmpose - INFO - Epoch [53][1500/2672]	lr: 1.000e-04, eta: 2 days, 0:08:38, time: 0.878, data_time: 0.352, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 19:06:54,157 - mmpose - INFO - Epoch [53][2000/2672]	lr: 1.000e-04, eta: 2 days, 0:04:22, time: 0.891, data_time: 0.330, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 19:14:20,265 - mmpose - INFO - Epoch [53][2500/2672]	lr: 1.000e-04, eta: 2 days, 0:00:03, time: 0.892, data_time: 0.340, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 19:24:25,006 - mmpose - INFO - Epoch [54][500/2672]	lr: 1.000e-04, eta: 1 day, 23:39:31, time: 0.898, data_time: 0.348, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 19:31:51,939 - mmpose - INFO - Epoch [54][1000/2672]	lr: 1.000e-04, eta: 1 day, 23:35:19, time: 0.894, data_time: 0.346, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 19:39:18,802 - mmpose - INFO - Epoch [54][1500/2672]	lr: 1.000e-04, eta: 1 day, 23:31:01, time: 0.894, data_time: 0.341, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 19:46:42,607 - mmpose - INFO - Epoch [54][2000/2672]	lr: 1.000e-04, eta: 1 day, 23:26:21, time: 0.888, data_time: 0.339, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 19:54:05,339 - mmpose - INFO - Epoch [54][2500/2672]	lr: 1.000e-04, eta: 1 day, 23:21:31, time: 0.885, data_time: 0.350, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 20:04:06,652 - mmpose - INFO - Epoch [55][500/2672]	lr: 1.000e-04, eta: 1 day, 23:01:43, time: 0.894, data_time: 0.342, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 20:11:30,939 - mmpose - INFO - Epoch [55][1000/2672]	lr: 1.000e-04, eta: 1 day, 22:57:04, time: 0.889, data_time: 0.342, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 20:18:52,278 - mmpose - INFO - Epoch [55][1500/2672]	lr: 1.000e-04, eta: 1 day, 22:52:06, time: 0.883, data_time: 0.343, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 20:26:21,438 - mmpose - INFO - Epoch [55][2000/2672]	lr: 1.000e-04, eta: 1 day, 22:47:44, time: 0.898, data_time: 0.340, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 20:33:47,328 - mmpose - INFO - Epoch [55][2500/2672]	lr: 1.000e-04, eta: 1 day, 22:43:00, time: 0.892, data_time: 0.333, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 20:43:44,979 - mmpose - INFO - Epoch [56][500/2672]	lr: 1.000e-04, eta: 1 day, 22:23:56, time: 0.891, data_time: 0.341, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 20:51:09,251 - mmpose - INFO - Epoch [56][1000/2672]	lr: 1.000e-04, eta: 1 day, 22:19:07, time: 0.889, data_time: 0.344, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 20:58:36,243 - mmpose - INFO - Epoch [56][1500/2672]	lr: 1.000e-04, eta: 1 day, 22:14:27, time: 0.894, data_time: 0.340, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 21:06:05,887 - mmpose - INFO - Epoch [56][2000/2672]	lr: 1.000e-04, eta: 1 day, 22:09:55, time: 0.899, data_time: 0.341, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 21:13:28,225 - mmpose - INFO - Epoch [56][2500/2672]	lr: 1.000e-04, eta: 1 day, 22:04:46, time: 0.885, data_time: 0.351, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 21:23:26,242 - mmpose - INFO - Epoch [57][500/2672]	lr: 1.000e-04, eta: 1 day, 21:46:22, time: 0.890, data_time: 0.350, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 21:30:51,255 - mmpose - INFO - Epoch [57][1000/2672]	lr: 1.000e-04, eta: 1 day, 21:41:27, time: 0.890, data_time: 0.346, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 21:38:22,311 - mmpose - INFO - Epoch [57][1500/2672]	lr: 1.000e-04, eta: 1 day, 21:36:55, time: 0.902, data_time: 0.351, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 21:45:44,027 - mmpose - INFO - Epoch [57][2000/2672]	lr: 1.000e-04, eta: 1 day, 21:31:38, time: 0.883, data_time: 0.345, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 21:53:10,646 - mmpose - INFO - Epoch [57][2500/2672]	lr: 1.000e-04, eta: 1 day, 21:26:40, time: 0.893, data_time: 0.348, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 22:03:16,221 - mmpose - INFO - Epoch [58][500/2672]	lr: 1.000e-04, eta: 1 day, 21:09:18, time: 0.900, data_time: 0.347, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 22:10:39,090 - mmpose - INFO - Epoch [58][1000/2672]	lr: 1.000e-04, eta: 1 day, 21:04:05, time: 0.886, data_time: 0.342, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 22:18:01,274 - mmpose - INFO - Epoch [58][1500/2672]	lr: 1.000e-04, eta: 1 day, 20:58:47, time: 0.884, data_time: 0.354, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 22:25:26,978 - mmpose - INFO - Epoch [58][2000/2672]	lr: 1.000e-04, eta: 1 day, 20:53:40, time: 0.891, data_time: 0.334, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 22:32:52,251 - mmpose - INFO - Epoch [58][2500/2672]	lr: 1.000e-04, eta: 1 day, 20:48:29, time: 0.891, data_time: 0.334, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 22:42:52,763 - mmpose - INFO - Epoch [59][500/2672]	lr: 1.000e-04, eta: 1 day, 20:31:23, time: 0.892, data_time: 0.356, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 22:50:20,272 - mmpose - INFO - Epoch [59][1000/2672]	lr: 1.000e-04, eta: 1 day, 20:26:22, time: 0.895, data_time: 0.340, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 22:57:47,000 - mmpose - INFO - Epoch [59][1500/2672]	lr: 1.000e-04, eta: 1 day, 20:21:14, time: 0.893, data_time: 0.337, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 23:05:17,710 - mmpose - INFO - Epoch [59][2000/2672]	lr: 1.000e-04, eta: 1 day, 20:16:20, time: 0.901, data_time: 0.339, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 23:12:40,090 - mmpose - INFO - Epoch [59][2500/2672]	lr: 1.000e-04, eta: 1 day, 20:10:50, time: 0.885, data_time: 0.341, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 23:22:43,053 - mmpose - INFO - Epoch [60][500/2672]	lr: 1.000e-04, eta: 1 day, 19:54:14, time: 0.891, data_time: 0.356, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 23:30:11,063 - mmpose - INFO - Epoch [60][1000/2672]	lr: 1.000e-04, eta: 1 day, 19:49:07, time: 0.896, data_time: 0.335, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 23:37:37,214 - mmpose - INFO - Epoch [60][1500/2672]	lr: 1.000e-04, eta: 1 day, 19:43:51, time: 0.892, data_time: 0.338, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 23:45:03,943 - mmpose - INFO - Epoch [60][2000/2672]	lr: 1.000e-04, eta: 1 day, 19:38:34, time: 0.893, data_time: 0.338, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 23:52:28,839 - mmpose - INFO - Epoch [60][2500/2672]	lr: 1.000e-04, eta: 1 day, 19:33:08, time: 0.890, data_time: 0.345, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 23:55:05,303 - mmpose - INFO - Saving checkpoint at 60 epochs
+2023-01-20 23:56:05,258 - mmpose - INFO - Now best checkpoint is saved as best_AP_epoch_60.pth.
+2023-01-20 23:56:05,258 - mmpose - INFO - Best AP is 0.5998 at 60 epoch.
+2023-01-20 23:56:05,265 - mmpose - INFO - Epoch(val) [60][625]	AP: 0.5998, AP .5: 0.8085, AP .75: 0.6593, AP (M): 0.5119, AP (L): 0.7248, AR: 0.6414, AR .5: 0.8323, AR .75: 0.6955, AR (M): 0.5485, AR (L): 0.7726
+2023-01-21 00:03:33,637 - mmpose - INFO - Epoch [61][500/2672]	lr: 1.000e-05, eta: 1 day, 19:17:10, time: 0.897, data_time: 0.350, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 00:11:00,054 - mmpose - INFO - Epoch [61][1000/2672]	lr: 1.000e-05, eta: 1 day, 19:11:50, time: 0.893, data_time: 0.351, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 00:18:26,834 - mmpose - INFO - Epoch [61][1500/2672]	lr: 1.000e-05, eta: 1 day, 19:06:30, time: 0.894, data_time: 0.334, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 00:25:54,434 - mmpose - INFO - Epoch [61][2000/2672]	lr: 1.000e-05, eta: 1 day, 19:01:09, time: 0.895, data_time: 0.347, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 00:33:23,031 - mmpose - INFO - Epoch [61][2500/2672]	lr: 1.000e-05, eta: 1 day, 18:55:50, time: 0.897, data_time: 0.351, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 00:43:27,382 - mmpose - INFO - Epoch [62][500/2672]	lr: 1.000e-05, eta: 1 day, 18:40:25, time: 0.902, data_time: 0.356, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 00:50:54,193 - mmpose - INFO - Epoch [62][1000/2672]	lr: 1.000e-05, eta: 1 day, 18:35:00, time: 0.894, data_time: 0.349, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0017
+2023-01-21 00:58:21,678 - mmpose - INFO - Epoch [62][1500/2672]	lr: 1.000e-05, eta: 1 day, 18:29:36, time: 0.895, data_time: 0.346, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 01:05:52,611 - mmpose - INFO - Epoch [62][2000/2672]	lr: 1.000e-05, eta: 1 day, 18:24:20, time: 0.902, data_time: 0.355, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 01:13:16,747 - mmpose - INFO - Epoch [62][2500/2672]	lr: 1.000e-05, eta: 1 day, 18:18:41, time: 0.888, data_time: 0.341, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 01:23:15,409 - mmpose - INFO - Epoch [63][500/2672]	lr: 1.000e-05, eta: 1 day, 18:03:25, time: 0.895, data_time: 0.346, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 01:30:44,038 - mmpose - INFO - Epoch [63][1000/2672]	lr: 1.000e-05, eta: 1 day, 17:58:00, time: 0.897, data_time: 0.342, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 01:38:15,218 - mmpose - INFO - Epoch [63][1500/2672]	lr: 1.000e-05, eta: 1 day, 17:52:41, time: 0.902, data_time: 0.353, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 01:45:35,985 - mmpose - INFO - Epoch [63][2000/2672]	lr: 1.000e-05, eta: 1 day, 17:46:49, time: 0.882, data_time: 0.353, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 01:53:01,840 - mmpose - INFO - Epoch [63][2500/2672]	lr: 1.000e-05, eta: 1 day, 17:41:11, time: 0.892, data_time: 0.349, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 02:03:03,227 - mmpose - INFO - Epoch [64][500/2672]	lr: 1.000e-05, eta: 1 day, 17:26:16, time: 0.895, data_time: 0.350, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 02:10:27,688 - mmpose - INFO - Epoch [64][1000/2672]	lr: 1.000e-05, eta: 1 day, 17:20:35, time: 0.889, data_time: 0.353, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 02:17:50,783 - mmpose - INFO - Epoch [64][1500/2672]	lr: 1.000e-05, eta: 1 day, 17:14:47, time: 0.886, data_time: 0.352, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 02:25:14,715 - mmpose - INFO - Epoch [64][2000/2672]	lr: 1.000e-05, eta: 1 day, 17:09:01, time: 0.888, data_time: 0.357, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 02:32:40,562 - mmpose - INFO - Epoch [64][2500/2672]	lr: 1.000e-05, eta: 1 day, 17:03:18, time: 0.892, data_time: 0.349, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 02:42:46,543 - mmpose - INFO - Epoch [65][500/2672]	lr: 1.000e-05, eta: 1 day, 16:48:54, time: 0.904, data_time: 0.356, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 02:50:17,595 - mmpose - INFO - Epoch [65][1000/2672]	lr: 1.000e-05, eta: 1 day, 16:43:26, time: 0.902, data_time: 0.348, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 02:57:42,775 - mmpose - INFO - Epoch [65][1500/2672]	lr: 1.000e-05, eta: 1 day, 16:37:40, time: 0.890, data_time: 0.356, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 03:05:04,685 - mmpose - INFO - Epoch [65][2000/2672]	lr: 1.000e-05, eta: 1 day, 16:31:44, time: 0.884, data_time: 0.341, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0017
+2023-01-21 03:12:27,759 - mmpose - INFO - Epoch [65][2500/2672]	lr: 1.000e-05, eta: 1 day, 16:25:50, time: 0.886, data_time: 0.337, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 03:22:23,691 - mmpose - INFO - Epoch [66][500/2672]	lr: 1.000e-05, eta: 1 day, 16:11:18, time: 0.885, data_time: 0.357, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 03:29:53,074 - mmpose - INFO - Epoch [66][1000/2672]	lr: 1.000e-05, eta: 1 day, 16:05:41, time: 0.899, data_time: 0.354, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 03:37:15,981 - mmpose - INFO - Epoch [66][1500/2672]	lr: 1.000e-05, eta: 1 day, 15:59:46, time: 0.886, data_time: 0.330, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0017
+2023-01-21 03:44:48,199 - mmpose - INFO - Epoch [66][2000/2672]	lr: 1.000e-05, eta: 1 day, 15:54:13, time: 0.904, data_time: 0.356, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 03:52:14,070 - mmpose - INFO - Epoch [66][2500/2672]	lr: 1.000e-05, eta: 1 day, 15:48:23, time: 0.892, data_time: 0.341, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 04:02:17,545 - mmpose - INFO - Epoch [67][500/2672]	lr: 1.000e-05, eta: 1 day, 15:34:23, time: 0.898, data_time: 0.350, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 04:09:49,567 - mmpose - INFO - Epoch [67][1000/2672]	lr: 1.000e-05, eta: 1 day, 15:28:48, time: 0.904, data_time: 0.343, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 04:17:13,926 - mmpose - INFO - Epoch [67][1500/2672]	lr: 1.000e-05, eta: 1 day, 15:22:53, time: 0.889, data_time: 0.353, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 04:24:43,091 - mmpose - INFO - Epoch [67][2000/2672]	lr: 1.000e-05, eta: 1 day, 15:17:08, time: 0.898, data_time: 0.350, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 04:32:08,378 - mmpose - INFO - Epoch [67][2500/2672]	lr: 1.000e-05, eta: 1 day, 15:11:12, time: 0.891, data_time: 0.344, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 04:42:07,347 - mmpose - INFO - Epoch [68][500/2672]	lr: 1.000e-05, eta: 1 day, 14:57:21, time: 0.892, data_time: 0.355, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 04:49:34,803 - mmpose - INFO - Epoch [68][1000/2672]	lr: 1.000e-05, eta: 1 day, 14:51:31, time: 0.895, data_time: 0.349, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 04:56:57,677 - mmpose - INFO - Epoch [68][1500/2672]	lr: 1.000e-05, eta: 1 day, 14:45:29, time: 0.886, data_time: 0.353, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 05:04:22,113 - mmpose - INFO - Epoch [68][2000/2672]	lr: 1.000e-05, eta: 1 day, 14:39:30, time: 0.889, data_time: 0.342, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0017
+2023-01-21 05:11:48,217 - mmpose - INFO - Epoch [68][2500/2672]	lr: 1.000e-05, eta: 1 day, 14:33:33, time: 0.892, data_time: 0.346, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 05:21:46,283 - mmpose - INFO - Epoch [69][500/2672]	lr: 1.000e-05, eta: 1 day, 14:19:58, time: 0.894, data_time: 0.353, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 05:29:11,166 - mmpose - INFO - Epoch [69][1000/2672]	lr: 1.000e-05, eta: 1 day, 14:13:59, time: 0.890, data_time: 0.350, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 05:36:40,737 - mmpose - INFO - Epoch [69][1500/2672]	lr: 1.000e-05, eta: 1 day, 14:08:09, time: 0.899, data_time: 0.341, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 05:44:07,655 - mmpose - INFO - Epoch [69][2000/2672]	lr: 1.000e-05, eta: 1 day, 14:02:12, time: 0.894, data_time: 0.342, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 05:51:32,406 - mmpose - INFO - Epoch [69][2500/2672]	lr: 1.000e-05, eta: 1 day, 13:56:09, time: 0.890, data_time: 0.342, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 06:01:30,790 - mmpose - INFO - Epoch [70][500/2672]	lr: 1.000e-05, eta: 1 day, 13:42:52, time: 0.899, data_time: 0.337, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 06:09:03,298 - mmpose - INFO - Epoch [70][1000/2672]	lr: 1.000e-05, eta: 1 day, 13:37:06, time: 0.905, data_time: 0.344, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 06:16:30,112 - mmpose - INFO - Epoch [70][1500/2672]	lr: 1.000e-05, eta: 1 day, 13:31:07, time: 0.894, data_time: 0.343, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 06:23:55,640 - mmpose - INFO - Epoch [70][2000/2672]	lr: 1.000e-05, eta: 1 day, 13:25:04, time: 0.891, data_time: 0.342, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0017
+2023-01-21 06:31:24,950 - mmpose - INFO - Epoch [70][2500/2672]	lr: 1.000e-05, eta: 1 day, 13:19:08, time: 0.899, data_time: 0.349, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 06:41:18,212 - mmpose - INFO - Epoch [71][500/2672]	lr: 1.000e-05, eta: 1 day, 13:05:48, time: 0.886, data_time: 0.348, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 06:48:47,125 - mmpose - INFO - Epoch [71][1000/2672]	lr: 1.000e-05, eta: 1 day, 12:59:52, time: 0.898, data_time: 0.352, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 06:56:10,232 - mmpose - INFO - Epoch [71][1500/2672]	lr: 1.000e-05, eta: 1 day, 12:53:43, time: 0.886, data_time: 0.349, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 07:03:39,230 - mmpose - INFO - Epoch [71][2000/2672]	lr: 1.000e-05, eta: 1 day, 12:47:44, time: 0.898, data_time: 0.356, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 07:11:10,890 - mmpose - INFO - Epoch [71][2500/2672]	lr: 1.000e-05, eta: 1 day, 12:41:49, time: 0.903, data_time: 0.343, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 07:21:11,230 - mmpose - INFO - Epoch [72][500/2672]	lr: 1.000e-05, eta: 1 day, 12:28:45, time: 0.890, data_time: 0.335, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0017
+2023-01-21 07:28:42,494 - mmpose - INFO - Epoch [72][1000/2672]	lr: 1.000e-05, eta: 1 day, 12:22:49, time: 0.903, data_time: 0.347, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 07:36:09,740 - mmpose - INFO - Epoch [72][1500/2672]	lr: 1.000e-05, eta: 1 day, 12:16:45, time: 0.895, data_time: 0.344, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 07:43:39,028 - mmpose - INFO - Epoch [72][2000/2672]	lr: 1.000e-05, eta: 1 day, 12:10:44, time: 0.899, data_time: 0.357, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 07:51:07,123 - mmpose - INFO - Epoch [72][2500/2672]	lr: 1.000e-05, eta: 1 day, 12:04:40, time: 0.896, data_time: 0.348, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 08:01:08,432 - mmpose - INFO - Epoch [73][500/2672]	lr: 1.000e-05, eta: 1 day, 11:51:54, time: 0.899, data_time: 0.358, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 08:08:41,472 - mmpose - INFO - Epoch [73][1000/2672]	lr: 1.000e-05, eta: 1 day, 11:45:59, time: 0.906, data_time: 0.357, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0018
+2023-01-21 08:16:05,217 - mmpose - INFO - Epoch [73][1500/2672]	lr: 1.000e-05, eta: 1 day, 11:39:46, time: 0.887, data_time: 0.343, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0017
+2023-01-21 08:23:32,713 - mmpose - INFO - Epoch [73][2000/2672]	lr: 1.000e-05, eta: 1 day, 11:33:39, time: 0.895, data_time: 0.349, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 08:31:00,359 - mmpose - INFO - Epoch [73][2500/2672]	lr: 1.000e-05, eta: 1 day, 11:27:31, time: 0.895, data_time: 0.344, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 08:41:08,202 - mmpose - INFO - Epoch [74][500/2672]	lr: 1.000e-05, eta: 1 day, 11:14:57, time: 0.901, data_time: 0.354, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 08:48:33,751 - mmpose - INFO - Epoch [74][1000/2672]	lr: 1.000e-05, eta: 1 day, 11:08:45, time: 0.891, data_time: 0.346, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 08:56:00,947 - mmpose - INFO - Epoch [74][1500/2672]	lr: 1.000e-05, eta: 1 day, 11:02:36, time: 0.894, data_time: 0.356, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 09:03:31,336 - mmpose - INFO - Epoch [74][2000/2672]	lr: 1.000e-05, eta: 1 day, 10:56:32, time: 0.901, data_time: 0.355, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 09:10:58,040 - mmpose - INFO - Epoch [74][2500/2672]	lr: 1.000e-05, eta: 1 day, 10:50:20, time: 0.893, data_time: 0.342, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 09:21:00,366 - mmpose - INFO - Epoch [75][500/2672]	lr: 1.000e-05, eta: 1 day, 10:37:51, time: 0.897, data_time: 0.346, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 09:28:26,826 - mmpose - INFO - Epoch [75][1000/2672]	lr: 1.000e-05, eta: 1 day, 10:31:39, time: 0.893, data_time: 0.347, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 09:35:53,313 - mmpose - INFO - Epoch [75][1500/2672]	lr: 1.000e-05, eta: 1 day, 10:25:26, time: 0.893, data_time: 0.353, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 09:43:17,682 - mmpose - INFO - Epoch [75][2000/2672]	lr: 1.000e-05, eta: 1 day, 10:19:09, time: 0.889, data_time: 0.359, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 09:50:47,469 - mmpose - INFO - Epoch [75][2500/2672]	lr: 1.000e-05, eta: 1 day, 10:13:00, time: 0.900, data_time: 0.348, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 10:00:49,113 - mmpose - INFO - Epoch [76][500/2672]	lr: 1.000e-05, eta: 1 day, 10:00:39, time: 0.896, data_time: 0.348, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 10:08:14,703 - mmpose - INFO - Epoch [76][1000/2672]	lr: 1.000e-05, eta: 1 day, 9:54:24, time: 0.891, data_time: 0.345, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 10:15:39,495 - mmpose - INFO - Epoch [76][1500/2672]	lr: 1.000e-05, eta: 1 day, 9:48:07, time: 0.890, data_time: 0.348, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 10:23:04,060 - mmpose - INFO - Epoch [76][2000/2672]	lr: 1.000e-05, eta: 1 day, 9:41:48, time: 0.889, data_time: 0.337, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 10:30:33,488 - mmpose - INFO - Epoch [76][2500/2672]	lr: 1.000e-05, eta: 1 day, 9:35:36, time: 0.899, data_time: 0.352, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 10:40:37,354 - mmpose - INFO - Epoch [77][500/2672]	lr: 1.000e-05, eta: 1 day, 9:23:24, time: 0.897, data_time: 0.347, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 10:48:03,457 - mmpose - INFO - Epoch [77][1000/2672]	lr: 1.000e-05, eta: 1 day, 9:17:07, time: 0.892, data_time: 0.338, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 10:55:25,391 - mmpose - INFO - Epoch [77][1500/2672]	lr: 1.000e-05, eta: 1 day, 9:10:44, time: 0.884, data_time: 0.346, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 11:02:51,690 - mmpose - INFO - Epoch [77][2000/2672]	lr: 1.000e-05, eta: 1 day, 9:04:26, time: 0.893, data_time: 0.357, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 11:10:16,453 - mmpose - INFO - Epoch [77][2500/2672]	lr: 1.000e-05, eta: 1 day, 8:58:06, time: 0.890, data_time: 0.351, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 11:20:19,895 - mmpose - INFO - Epoch [78][500/2672]	lr: 1.000e-05, eta: 1 day, 8:46:00, time: 0.896, data_time: 0.351, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 11:27:44,161 - mmpose - INFO - Epoch [78][1000/2672]	lr: 1.000e-05, eta: 1 day, 8:39:40, time: 0.889, data_time: 0.353, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 11:35:05,965 - mmpose - INFO - Epoch [78][1500/2672]	lr: 1.000e-05, eta: 1 day, 8:33:15, time: 0.884, data_time: 0.348, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 11:42:34,282 - mmpose - INFO - Epoch [78][2000/2672]	lr: 1.000e-05, eta: 1 day, 8:26:58, time: 0.897, data_time: 0.347, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 11:50:02,279 - mmpose - INFO - Epoch [78][2500/2672]	lr: 1.000e-05, eta: 1 day, 8:20:40, time: 0.896, data_time: 0.353, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 12:00:10,518 - mmpose - INFO - Epoch [79][500/2672]	lr: 1.000e-05, eta: 1 day, 8:08:53, time: 0.912, data_time: 0.359, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 12:07:37,766 - mmpose - INFO - Epoch [79][1000/2672]	lr: 1.000e-05, eta: 1 day, 8:02:35, time: 0.894, data_time: 0.351, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 12:15:06,311 - mmpose - INFO - Epoch [79][1500/2672]	lr: 1.000e-05, eta: 1 day, 7:56:17, time: 0.897, data_time: 0.346, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 12:22:37,462 - mmpose - INFO - Epoch [79][2000/2672]	lr: 1.000e-05, eta: 1 day, 7:50:02, time: 0.902, data_time: 0.345, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 12:30:02,594 - mmpose - INFO - Epoch [79][2500/2672]	lr: 1.000e-05, eta: 1 day, 7:43:39, time: 0.890, data_time: 0.339, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 12:40:03,184 - mmpose - INFO - Epoch [80][500/2672]	lr: 1.000e-05, eta: 1 day, 7:31:48, time: 0.897, data_time: 0.346, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 12:47:35,338 - mmpose - INFO - Epoch [80][1000/2672]	lr: 1.000e-05, eta: 1 day, 7:25:34, time: 0.904, data_time: 0.351, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 12:55:01,333 - mmpose - INFO - Epoch [80][1500/2672]	lr: 1.000e-05, eta: 1 day, 7:19:12, time: 0.892, data_time: 0.358, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 13:02:24,786 - mmpose - INFO - Epoch [80][2000/2672]	lr: 1.000e-05, eta: 1 day, 7:12:45, time: 0.887, data_time: 0.342, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0017
+2023-01-21 13:09:53,597 - mmpose - INFO - Epoch [80][2500/2672]	lr: 1.000e-05, eta: 1 day, 7:06:25, time: 0.898, data_time: 0.354, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 13:12:26,231 - mmpose - INFO - Saving checkpoint at 80 epochs
+2023-01-21 13:13:22,807 - mmpose - INFO - The previous best checkpoint /workspace/mmpose/out/litedekr/litepose_S_coco_448x448_pretrained_rle_oks/best_AP_epoch_60.pth was removed
+2023-01-21 13:13:22,995 - mmpose - INFO - Now best checkpoint is saved as best_AP_epoch_80.pth.
+2023-01-21 13:13:22,995 - mmpose - INFO - Best AP is 0.6024 at 80 epoch.
+2023-01-21 13:13:23,003 - mmpose - INFO - Epoch(val) [80][625]	AP: 0.6024, AP .5: 0.8090, AP .75: 0.6597, AP (M): 0.5151, AP (L): 0.7280, AR: 0.6441, AR .5: 0.8345, AR .75: 0.6957, AR (M): 0.5515, AR (L): 0.7747
+2023-01-21 13:20:44,850 - mmpose - INFO - Epoch [81][500/2672]	lr: 1.000e-05, eta: 1 day, 6:54:33, time: 0.884, data_time: 0.352, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 13:28:13,497 - mmpose - INFO - Epoch [81][1000/2672]	lr: 1.000e-05, eta: 1 day, 6:48:12, time: 0.897, data_time: 0.344, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 13:35:41,079 - mmpose - INFO - Epoch [81][1500/2672]	lr: 1.000e-05, eta: 1 day, 6:41:50, time: 0.895, data_time: 0.348, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 13:43:06,424 - mmpose - INFO - Epoch [81][2000/2672]	lr: 1.000e-05, eta: 1 day, 6:35:24, time: 0.891, data_time: 0.332, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 13:50:36,771 - mmpose - INFO - Epoch [81][2500/2672]	lr: 1.000e-05, eta: 1 day, 6:29:04, time: 0.901, data_time: 0.352, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 14:00:43,765 - mmpose - INFO - Epoch [82][500/2672]	lr: 1.000e-05, eta: 1 day, 6:17:32, time: 0.906, data_time: 0.359, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 14:08:10,801 - mmpose - INFO - Epoch [82][1000/2672]	lr: 1.000e-05, eta: 1 day, 6:11:08, time: 0.894, data_time: 0.347, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 14:15:36,244 - mmpose - INFO - Epoch [82][1500/2672]	lr: 1.000e-05, eta: 1 day, 6:04:42, time: 0.891, data_time: 0.351, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 14:22:59,185 - mmpose - INFO - Epoch [82][2000/2672]	lr: 1.000e-05, eta: 1 day, 5:58:12, time: 0.886, data_time: 0.349, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 14:30:23,406 - mmpose - INFO - Epoch [82][2500/2672]	lr: 1.000e-05, eta: 1 day, 5:51:43, time: 0.888, data_time: 0.336, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0017
+2023-01-21 14:40:30,380 - mmpose - INFO - Epoch [83][500/2672]	lr: 1.000e-05, eta: 1 day, 5:40:14, time: 0.902, data_time: 0.351, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 14:47:54,414 - mmpose - INFO - Epoch [83][1000/2672]	lr: 1.000e-05, eta: 1 day, 5:33:45, time: 0.888, data_time: 0.346, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 14:55:24,085 - mmpose - INFO - Epoch [83][1500/2672]	lr: 1.000e-05, eta: 1 day, 5:27:22, time: 0.899, data_time: 0.336, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 15:02:53,819 - mmpose - INFO - Epoch [83][2000/2672]	lr: 1.000e-05, eta: 1 day, 5:20:58, time: 0.899, data_time: 0.344, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 15:10:24,060 - mmpose - INFO - Epoch [83][2500/2672]	lr: 1.000e-05, eta: 1 day, 5:14:35, time: 0.900, data_time: 0.353, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0017
+2023-01-21 15:20:23,816 - mmpose - INFO - Epoch [84][500/2672]	lr: 1.000e-05, eta: 1 day, 5:03:04, time: 0.889, data_time: 0.342, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 15:27:46,377 - mmpose - INFO - Epoch [84][1000/2672]	lr: 1.000e-05, eta: 1 day, 4:56:33, time: 0.885, data_time: 0.353, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 15:35:16,771 - mmpose - INFO - Epoch [84][1500/2672]	lr: 1.000e-05, eta: 1 day, 4:50:09, time: 0.901, data_time: 0.334, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 15:42:49,424 - mmpose - INFO - Epoch [84][2000/2672]	lr: 1.000e-05, eta: 1 day, 4:43:47, time: 0.905, data_time: 0.348, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 15:50:17,620 - mmpose - INFO - Epoch [84][2500/2672]	lr: 1.000e-05, eta: 1 day, 4:37:20, time: 0.896, data_time: 0.351, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 16:00:17,000 - mmpose - INFO - Epoch [85][500/2672]	lr: 1.000e-05, eta: 1 day, 4:25:57, time: 0.894, data_time: 0.351, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 16:07:48,094 - mmpose - INFO - Epoch [85][1000/2672]	lr: 1.000e-05, eta: 1 day, 4:19:33, time: 0.902, data_time: 0.351, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 16:15:11,407 - mmpose - INFO - Epoch [85][1500/2672]	lr: 1.000e-05, eta: 1 day, 4:13:00, time: 0.887, data_time: 0.345, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 16:22:40,508 - mmpose - INFO - Epoch [85][2000/2672]	lr: 1.000e-05, eta: 1 day, 4:06:33, time: 0.898, data_time: 0.344, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 16:30:10,711 - mmpose - INFO - Epoch [85][2500/2672]	lr: 1.000e-05, eta: 1 day, 4:00:06, time: 0.900, data_time: 0.342, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 16:40:16,181 - mmpose - INFO - Epoch [86][500/2672]	lr: 1.000e-05, eta: 1 day, 3:48:55, time: 0.905, data_time: 0.339, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 16:47:46,384 - mmpose - INFO - Epoch [86][1000/2672]	lr: 1.000e-05, eta: 1 day, 3:42:28, time: 0.900, data_time: 0.350, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 16:55:11,217 - mmpose - INFO - Epoch [86][1500/2672]	lr: 1.000e-05, eta: 1 day, 3:35:56, time: 0.890, data_time: 0.349, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 17:02:35,586 - mmpose - INFO - Epoch [86][2000/2672]	lr: 1.000e-05, eta: 1 day, 3:29:23, time: 0.889, data_time: 0.345, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 17:10:03,201 - mmpose - INFO - Epoch [86][2500/2672]	lr: 1.000e-05, eta: 1 day, 3:22:52, time: 0.895, data_time: 0.342, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 17:20:06,761 - mmpose - INFO - Epoch [87][500/2672]	lr: 1.000e-05, eta: 1 day, 3:11:42, time: 0.900, data_time: 0.363, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 17:27:35,331 - mmpose - INFO - Epoch [87][1000/2672]	lr: 1.000e-05, eta: 1 day, 3:05:13, time: 0.897, data_time: 0.339, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 17:35:01,733 - mmpose - INFO - Epoch [87][1500/2672]	lr: 1.000e-05, eta: 1 day, 2:58:41, time: 0.893, data_time: 0.350, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 17:42:24,018 - mmpose - INFO - Epoch [87][2000/2672]	lr: 1.000e-05, eta: 1 day, 2:52:05, time: 0.885, data_time: 0.332, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0017
+2023-01-21 17:49:50,678 - mmpose - INFO - Epoch [87][2500/2672]	lr: 1.000e-05, eta: 1 day, 2:45:32, time: 0.893, data_time: 0.348, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 17:59:52,910 - mmpose - INFO - Epoch [88][500/2672]	lr: 1.000e-05, eta: 1 day, 2:34:26, time: 0.897, data_time: 0.343, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 18:07:17,606 - mmpose - INFO - Epoch [88][1000/2672]	lr: 1.000e-05, eta: 1 day, 2:27:52, time: 0.889, data_time: 0.344, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 18:14:45,622 - mmpose - INFO - Epoch [88][1500/2672]	lr: 1.000e-05, eta: 1 day, 2:21:20, time: 0.896, data_time: 0.345, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 18:22:06,312 - mmpose - INFO - Epoch [88][2000/2672]	lr: 1.000e-05, eta: 1 day, 2:14:41, time: 0.881, data_time: 0.347, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 18:29:37,460 - mmpose - INFO - Epoch [88][2500/2672]	lr: 1.000e-05, eta: 1 day, 2:08:12, time: 0.902, data_time: 0.340, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 18:39:34,787 - mmpose - INFO - Epoch [89][500/2672]	lr: 1.000e-05, eta: 1 day, 1:57:06, time: 0.888, data_time: 0.349, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 18:47:04,188 - mmpose - INFO - Epoch [89][1000/2672]	lr: 1.000e-05, eta: 1 day, 1:50:35, time: 0.899, data_time: 0.341, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 18:54:30,273 - mmpose - INFO - Epoch [89][1500/2672]	lr: 1.000e-05, eta: 1 day, 1:44:01, time: 0.892, data_time: 0.349, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 19:01:54,079 - mmpose - INFO - Epoch [89][2000/2672]	lr: 1.000e-05, eta: 1 day, 1:37:24, time: 0.888, data_time: 0.343, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 19:09:18,881 - mmpose - INFO - Epoch [89][2500/2672]	lr: 1.000e-05, eta: 1 day, 1:30:48, time: 0.890, data_time: 0.352, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 19:19:25,956 - mmpose - INFO - Epoch [90][500/2672]	lr: 1.000e-05, eta: 1 day, 1:19:53, time: 0.903, data_time: 0.358, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 19:26:50,675 - mmpose - INFO - Epoch [90][1000/2672]	lr: 1.000e-05, eta: 1 day, 1:13:17, time: 0.889, data_time: 0.347, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 19:34:17,959 - mmpose - INFO - Epoch [90][1500/2672]	lr: 1.000e-05, eta: 1 day, 1:06:42, time: 0.895, data_time: 0.349, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 19:41:44,615 - mmpose - INFO - Epoch [90][2000/2672]	lr: 1.000e-05, eta: 1 day, 1:00:07, time: 0.893, data_time: 0.335, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0017
+2023-01-21 19:49:05,274 - mmpose - INFO - Epoch [90][2500/2672]	lr: 1.000e-05, eta: 1 day, 0:53:26, time: 0.881, data_time: 0.337, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0017
+2023-01-21 19:59:05,857 - mmpose - INFO - Epoch [91][500/2672]	lr: 1.000e-06, eta: 1 day, 0:42:33, time: 0.897, data_time: 0.344, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 20:06:36,017 - mmpose - INFO - Epoch [91][1000/2672]	lr: 1.000e-06, eta: 1 day, 0:36:00, time: 0.900, data_time: 0.345, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 20:14:02,403 - mmpose - INFO - Epoch [91][1500/2672]	lr: 1.000e-06, eta: 1 day, 0:29:24, time: 0.893, data_time: 0.345, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 20:21:29,219 - mmpose - INFO - Epoch [91][2000/2672]	lr: 1.000e-06, eta: 1 day, 0:22:48, time: 0.894, data_time: 0.342, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 20:28:54,768 - mmpose - INFO - Epoch [91][2500/2672]	lr: 1.000e-06, eta: 1 day, 0:16:10, time: 0.891, data_time: 0.348, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 20:38:54,182 - mmpose - INFO - Epoch [92][500/2672]	lr: 1.000e-06, eta: 1 day, 0:05:19, time: 0.891, data_time: 0.353, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0017
+2023-01-21 20:46:22,317 - mmpose - INFO - Epoch [92][1000/2672]	lr: 1.000e-06, eta: 23:58:44, time: 0.896, data_time: 0.349, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 20:53:50,954 - mmpose - INFO - Epoch [92][1500/2672]	lr: 1.000e-06, eta: 23:52:08, time: 0.897, data_time: 0.354, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 21:01:21,301 - mmpose - INFO - Epoch [92][2000/2672]	lr: 1.000e-06, eta: 23:45:33, time: 0.901, data_time: 0.347, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 21:08:43,306 - mmpose - INFO - Epoch [92][2500/2672]	lr: 1.000e-06, eta: 23:38:52, time: 0.884, data_time: 0.346, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 21:18:48,990 - mmpose - INFO - Epoch [93][500/2672]	lr: 1.000e-06, eta: 23:28:10, time: 0.905, data_time: 0.347, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 21:26:15,051 - mmpose - INFO - Epoch [93][1000/2672]	lr: 1.000e-06, eta: 23:21:32, time: 0.892, data_time: 0.340, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 21:33:36,695 - mmpose - INFO - Epoch [93][1500/2672]	lr: 1.000e-06, eta: 23:14:50, time: 0.883, data_time: 0.335, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0017
+2023-01-21 21:41:10,121 - mmpose - INFO - Epoch [93][2000/2672]	lr: 1.000e-06, eta: 23:08:17, time: 0.907, data_time: 0.351, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 21:48:34,870 - mmpose - INFO - Epoch [93][2500/2672]	lr: 1.000e-06, eta: 23:01:37, time: 0.890, data_time: 0.337, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 21:58:36,106 - mmpose - INFO - Epoch [94][500/2672]	lr: 1.000e-06, eta: 22:50:55, time: 0.895, data_time: 0.340, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 22:06:01,399 - mmpose - INFO - Epoch [94][1000/2672]	lr: 1.000e-06, eta: 22:44:15, time: 0.891, data_time: 0.348, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 22:13:27,257 - mmpose - INFO - Epoch [94][1500/2672]	lr: 1.000e-06, eta: 22:37:36, time: 0.892, data_time: 0.352, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 22:20:55,588 - mmpose - INFO - Epoch [94][2000/2672]	lr: 1.000e-06, eta: 22:30:58, time: 0.897, data_time: 0.339, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0017
+2023-01-21 22:28:22,770 - mmpose - INFO - Epoch [94][2500/2672]	lr: 1.000e-06, eta: 22:24:19, time: 0.894, data_time: 0.335, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 22:38:26,359 - mmpose - INFO - Epoch [95][500/2672]	lr: 1.000e-06, eta: 22:13:42, time: 0.900, data_time: 0.343, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 22:45:51,441 - mmpose - INFO - Epoch [95][1000/2672]	lr: 1.000e-06, eta: 22:07:01, time: 0.890, data_time: 0.344, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 22:53:17,190 - mmpose - INFO - Epoch [95][1500/2672]	lr: 1.000e-06, eta: 22:00:21, time: 0.891, data_time: 0.342, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 23:00:45,227 - mmpose - INFO - Epoch [95][2000/2672]	lr: 1.000e-06, eta: 21:53:42, time: 0.896, data_time: 0.338, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 23:08:15,931 - mmpose - INFO - Epoch [95][2500/2672]	lr: 1.000e-06, eta: 21:47:04, time: 0.901, data_time: 0.343, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 23:18:09,574 - mmpose - INFO - Epoch [96][500/2672]	lr: 1.000e-06, eta: 21:36:27, time: 0.888, data_time: 0.356, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 23:25:35,015 - mmpose - INFO - Epoch [96][1000/2672]	lr: 1.000e-06, eta: 21:29:46, time: 0.891, data_time: 0.349, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 23:33:04,959 - mmpose - INFO - Epoch [96][1500/2672]	lr: 1.000e-06, eta: 21:23:07, time: 0.900, data_time: 0.342, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 23:40:34,774 - mmpose - INFO - Epoch [96][2000/2672]	lr: 1.000e-06, eta: 21:16:28, time: 0.900, data_time: 0.345, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 23:48:03,659 - mmpose - INFO - Epoch [96][2500/2672]	lr: 1.000e-06, eta: 21:09:48, time: 0.898, data_time: 0.347, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-21 23:58:07,684 - mmpose - INFO - Epoch [97][500/2672]	lr: 1.000e-06, eta: 20:59:19, time: 0.903, data_time: 0.354, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 00:05:34,641 - mmpose - INFO - Epoch [97][1000/2672]	lr: 1.000e-06, eta: 20:52:38, time: 0.894, data_time: 0.339, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 00:12:58,150 - mmpose - INFO - Epoch [97][1500/2672]	lr: 1.000e-06, eta: 20:45:55, time: 0.887, data_time: 0.341, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 00:20:31,639 - mmpose - INFO - Epoch [97][2000/2672]	lr: 1.000e-06, eta: 20:39:17, time: 0.907, data_time: 0.344, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 00:27:52,211 - mmpose - INFO - Epoch [97][2500/2672]	lr: 1.000e-06, eta: 20:32:31, time: 0.881, data_time: 0.342, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 00:37:53,272 - mmpose - INFO - Epoch [98][500/2672]	lr: 1.000e-06, eta: 20:22:03, time: 0.894, data_time: 0.346, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 00:45:16,254 - mmpose - INFO - Epoch [98][1000/2672]	lr: 1.000e-06, eta: 20:15:19, time: 0.886, data_time: 0.350, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 00:52:41,008 - mmpose - INFO - Epoch [98][1500/2672]	lr: 1.000e-06, eta: 20:08:35, time: 0.890, data_time: 0.342, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 01:00:14,513 - mmpose - INFO - Epoch [98][2000/2672]	lr: 1.000e-06, eta: 20:01:57, time: 0.907, data_time: 0.346, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 01:07:46,195 - mmpose - INFO - Epoch [98][2500/2672]	lr: 1.000e-06, eta: 19:55:17, time: 0.903, data_time: 0.350, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 01:17:45,062 - mmpose - INFO - Epoch [99][500/2672]	lr: 1.000e-06, eta: 19:44:51, time: 0.892, data_time: 0.351, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 01:25:11,216 - mmpose - INFO - Epoch [99][1000/2672]	lr: 1.000e-06, eta: 19:38:08, time: 0.892, data_time: 0.344, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0017
+2023-01-22 01:32:37,618 - mmpose - INFO - Epoch [99][1500/2672]	lr: 1.000e-06, eta: 19:31:24, time: 0.893, data_time: 0.343, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 01:40:04,778 - mmpose - INFO - Epoch [99][2000/2672]	lr: 1.000e-06, eta: 19:24:41, time: 0.894, data_time: 0.329, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 01:47:32,866 - mmpose - INFO - Epoch [99][2500/2672]	lr: 1.000e-06, eta: 19:17:59, time: 0.896, data_time: 0.342, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 01:57:36,117 - mmpose - INFO - Epoch [100][500/2672]	lr: 1.000e-06, eta: 19:07:38, time: 0.901, data_time: 0.342, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 02:04:57,904 - mmpose - INFO - Epoch [100][1000/2672]	lr: 1.000e-06, eta: 19:00:52, time: 0.884, data_time: 0.335, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0017
+2023-01-22 02:12:27,584 - mmpose - INFO - Epoch [100][1500/2672]	lr: 1.000e-06, eta: 18:54:10, time: 0.899, data_time: 0.349, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 02:19:55,491 - mmpose - INFO - Epoch [100][2000/2672]	lr: 1.000e-06, eta: 18:47:26, time: 0.896, data_time: 0.350, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 02:27:24,252 - mmpose - INFO - Epoch [100][2500/2672]	lr: 1.000e-06, eta: 18:40:43, time: 0.897, data_time: 0.341, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 02:30:03,037 - mmpose - INFO - Saving checkpoint at 100 epochs
+2023-01-22 02:31:01,461 - mmpose - INFO - The previous best checkpoint /workspace/mmpose/out/litedekr/litepose_S_coco_448x448_pretrained_rle_oks/best_AP_epoch_80.pth was removed
+2023-01-22 02:31:01,639 - mmpose - INFO - Now best checkpoint is saved as best_AP_epoch_100.pth.
+2023-01-22 02:31:01,639 - mmpose - INFO - Best AP is 0.6051 at 100 epoch.
+2023-01-22 02:31:01,647 - mmpose - INFO - Epoch(val) [100][625]	AP: 0.6051, AP .5: 0.8103, AP .75: 0.6667, AP (M): 0.5191, AP (L): 0.7292, AR: 0.6468, AR .5: 0.8388, AR .75: 0.7009, AR (M): 0.5546, AR (L): 0.7771
+2023-01-22 02:38:32,805 - mmpose - INFO - Epoch [101][500/2672]	lr: 1.000e-06, eta: 18:30:25, time: 0.902, data_time: 0.352, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 02:46:00,378 - mmpose - INFO - Epoch [101][1000/2672]	lr: 1.000e-06, eta: 18:23:42, time: 0.895, data_time: 0.357, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 02:53:31,354 - mmpose - INFO - Epoch [101][1500/2672]	lr: 1.000e-06, eta: 18:16:59, time: 0.902, data_time: 0.333, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 03:00:57,936 - mmpose - INFO - Epoch [101][2000/2672]	lr: 1.000e-06, eta: 18:10:14, time: 0.893, data_time: 0.345, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 03:08:18,419 - mmpose - INFO - Epoch [101][2500/2672]	lr: 1.000e-06, eta: 18:03:26, time: 0.881, data_time: 0.338, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0017
+2023-01-22 03:18:17,117 - mmpose - INFO - Epoch [102][500/2672]	lr: 1.000e-06, eta: 17:53:10, time: 0.894, data_time: 0.358, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 03:25:41,132 - mmpose - INFO - Epoch [102][1000/2672]	lr: 1.000e-06, eta: 17:46:23, time: 0.888, data_time: 0.341, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0017
+2023-01-22 03:33:07,460 - mmpose - INFO - Epoch [102][1500/2672]	lr: 1.000e-06, eta: 17:39:38, time: 0.893, data_time: 0.351, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 03:40:34,526 - mmpose - INFO - Epoch [102][2000/2672]	lr: 1.000e-06, eta: 17:32:53, time: 0.894, data_time: 0.358, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 03:48:00,256 - mmpose - INFO - Epoch [102][2500/2672]	lr: 1.000e-06, eta: 17:26:07, time: 0.891, data_time: 0.342, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 03:58:06,279 - mmpose - INFO - Epoch [103][500/2672]	lr: 1.000e-06, eta: 17:15:55, time: 0.902, data_time: 0.356, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 04:05:32,534 - mmpose - INFO - Epoch [103][1000/2672]	lr: 1.000e-06, eta: 17:09:09, time: 0.893, data_time: 0.351, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 04:12:57,592 - mmpose - INFO - Epoch [103][1500/2672]	lr: 1.000e-06, eta: 17:02:22, time: 0.890, data_time: 0.347, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 04:20:26,872 - mmpose - INFO - Epoch [103][2000/2672]	lr: 1.000e-06, eta: 16:55:37, time: 0.899, data_time: 0.355, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 04:27:51,495 - mmpose - INFO - Epoch [103][2500/2672]	lr: 1.000e-06, eta: 16:48:50, time: 0.889, data_time: 0.343, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 04:37:54,465 - mmpose - INFO - Epoch [104][500/2672]	lr: 1.000e-06, eta: 16:38:39, time: 0.895, data_time: 0.351, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 04:45:22,011 - mmpose - INFO - Epoch [104][1000/2672]	lr: 1.000e-06, eta: 16:31:53, time: 0.895, data_time: 0.362, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 04:52:50,683 - mmpose - INFO - Epoch [104][1500/2672]	lr: 1.000e-06, eta: 16:25:07, time: 0.897, data_time: 0.344, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 05:00:19,704 - mmpose - INFO - Epoch [104][2000/2672]	lr: 1.000e-06, eta: 16:18:22, time: 0.898, data_time: 0.345, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 05:07:40,093 - mmpose - INFO - Epoch [104][2500/2672]	lr: 1.000e-06, eta: 16:11:32, time: 0.881, data_time: 0.336, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0017
+2023-01-22 05:17:46,594 - mmpose - INFO - Epoch [105][500/2672]	lr: 1.000e-06, eta: 16:01:25, time: 0.903, data_time: 0.354, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 05:25:09,766 - mmpose - INFO - Epoch [105][1000/2672]	lr: 1.000e-06, eta: 15:54:37, time: 0.886, data_time: 0.354, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 05:32:37,020 - mmpose - INFO - Epoch [105][1500/2672]	lr: 1.000e-06, eta: 15:47:50, time: 0.894, data_time: 0.343, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 05:40:02,844 - mmpose - INFO - Epoch [105][2000/2672]	lr: 1.000e-06, eta: 15:41:02, time: 0.892, data_time: 0.338, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 05:47:29,667 - mmpose - INFO - Epoch [105][2500/2672]	lr: 1.000e-06, eta: 15:34:15, time: 0.894, data_time: 0.341, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 05:57:34,700 - mmpose - INFO - Epoch [106][500/2672]	lr: 1.000e-06, eta: 15:24:11, time: 0.905, data_time: 0.351, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 06:04:56,967 - mmpose - INFO - Epoch [106][1000/2672]	lr: 1.000e-06, eta: 15:17:22, time: 0.885, data_time: 0.336, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 06:12:25,984 - mmpose - INFO - Epoch [106][1500/2672]	lr: 1.000e-06, eta: 15:10:35, time: 0.898, data_time: 0.346, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 06:19:53,675 - mmpose - INFO - Epoch [106][2000/2672]	lr: 1.000e-06, eta: 15:03:47, time: 0.895, data_time: 0.360, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 06:27:16,986 - mmpose - INFO - Epoch [106][2500/2672]	lr: 1.000e-06, eta: 14:56:58, time: 0.887, data_time: 0.349, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 06:37:24,657 - mmpose - INFO - Epoch [107][500/2672]	lr: 1.000e-06, eta: 14:46:56, time: 0.905, data_time: 0.353, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 06:44:50,802 - mmpose - INFO - Epoch [107][1000/2672]	lr: 1.000e-06, eta: 14:40:08, time: 0.892, data_time: 0.346, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 06:52:20,257 - mmpose - INFO - Epoch [107][1500/2672]	lr: 1.000e-06, eta: 14:33:20, time: 0.899, data_time: 0.342, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 06:59:42,763 - mmpose - INFO - Epoch [107][2000/2672]	lr: 1.000e-06, eta: 14:26:30, time: 0.885, data_time: 0.351, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0017
+2023-01-22 07:07:09,632 - mmpose - INFO - Epoch [107][2500/2672]	lr: 1.000e-06, eta: 14:19:42, time: 0.894, data_time: 0.346, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 07:17:09,783 - mmpose - INFO - Epoch [108][500/2672]	lr: 1.000e-06, eta: 14:09:41, time: 0.901, data_time: 0.352, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 07:24:41,038 - mmpose - INFO - Epoch [108][1000/2672]	lr: 1.000e-06, eta: 14:02:54, time: 0.903, data_time: 0.341, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 07:32:06,024 - mmpose - INFO - Epoch [108][1500/2672]	lr: 1.000e-06, eta: 13:56:05, time: 0.890, data_time: 0.353, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 07:39:33,462 - mmpose - INFO - Epoch [108][2000/2672]	lr: 1.000e-06, eta: 13:49:16, time: 0.895, data_time: 0.343, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 07:46:58,942 - mmpose - INFO - Epoch [108][2500/2672]	lr: 1.000e-06, eta: 13:42:26, time: 0.891, data_time: 0.343, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 07:56:51,556 - mmpose - INFO - Epoch [109][500/2672]	lr: 1.000e-06, eta: 13:32:25, time: 0.883, data_time: 0.351, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0017
+2023-01-22 08:04:12,484 - mmpose - INFO - Epoch [109][1000/2672]	lr: 1.000e-06, eta: 13:25:34, time: 0.882, data_time: 0.357, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 08:11:39,455 - mmpose - INFO - Epoch [109][1500/2672]	lr: 1.000e-06, eta: 13:18:45, time: 0.894, data_time: 0.349, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 08:19:05,907 - mmpose - INFO - Epoch [109][2000/2672]	lr: 1.000e-06, eta: 13:11:55, time: 0.893, data_time: 0.350, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 08:26:39,676 - mmpose - INFO - Epoch [109][2500/2672]	lr: 1.000e-06, eta: 13:05:08, time: 0.908, data_time: 0.358, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 08:36:38,993 - mmpose - INFO - Epoch [110][500/2672]	lr: 1.000e-06, eta: 12:55:11, time: 0.899, data_time: 0.352, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 08:44:04,747 - mmpose - INFO - Epoch [110][1000/2672]	lr: 1.000e-06, eta: 12:48:21, time: 0.891, data_time: 0.341, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0017
+2023-01-22 08:51:31,286 - mmpose - INFO - Epoch [110][1500/2672]	lr: 1.000e-06, eta: 12:41:31, time: 0.893, data_time: 0.354, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 08:59:04,660 - mmpose - INFO - Epoch [110][2000/2672]	lr: 1.000e-06, eta: 12:34:43, time: 0.907, data_time: 0.337, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 09:06:30,419 - mmpose - INFO - Epoch [110][2500/2672]	lr: 1.000e-06, eta: 12:27:53, time: 0.892, data_time: 0.334, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 09:16:32,559 - mmpose - INFO - Epoch [111][500/2672]	lr: 1.000e-06, eta: 12:17:58, time: 0.895, data_time: 0.345, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 09:24:03,043 - mmpose - INFO - Epoch [111][1000/2672]	lr: 1.000e-06, eta: 12:11:09, time: 0.901, data_time: 0.346, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 09:31:31,025 - mmpose - INFO - Epoch [111][1500/2672]	lr: 1.000e-06, eta: 12:04:18, time: 0.896, data_time: 0.348, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 09:38:55,506 - mmpose - INFO - Epoch [111][2000/2672]	lr: 1.000e-06, eta: 11:57:27, time: 0.889, data_time: 0.354, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0017
+2023-01-22 09:46:24,194 - mmpose - INFO - Epoch [111][2500/2672]	lr: 1.000e-06, eta: 11:50:37, time: 0.897, data_time: 0.354, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 09:56:30,557 - mmpose - INFO - Epoch [112][500/2672]	lr: 1.000e-06, eta: 11:40:46, time: 0.907, data_time: 0.356, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 10:03:56,630 - mmpose - INFO - Epoch [112][1000/2672]	lr: 1.000e-06, eta: 11:33:55, time: 0.892, data_time: 0.346, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 10:11:23,414 - mmpose - INFO - Epoch [112][1500/2672]	lr: 1.000e-06, eta: 11:27:04, time: 0.894, data_time: 0.349, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 10:18:50,705 - mmpose - INFO - Epoch [112][2000/2672]	lr: 1.000e-06, eta: 11:20:13, time: 0.895, data_time: 0.350, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 10:26:20,522 - mmpose - INFO - Epoch [112][2500/2672]	lr: 1.000e-06, eta: 11:13:22, time: 0.900, data_time: 0.341, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 10:36:18,048 - mmpose - INFO - Epoch [113][500/2672]	lr: 1.000e-06, eta: 11:03:31, time: 0.893, data_time: 0.343, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 10:43:45,338 - mmpose - INFO - Epoch [113][1000/2672]	lr: 1.000e-06, eta: 10:56:40, time: 0.895, data_time: 0.351, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 10:51:08,919 - mmpose - INFO - Epoch [113][1500/2672]	lr: 1.000e-06, eta: 10:49:48, time: 0.887, data_time: 0.351, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 10:58:33,144 - mmpose - INFO - Epoch [113][2000/2672]	lr: 1.000e-06, eta: 10:42:55, time: 0.888, data_time: 0.343, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 11:06:02,142 - mmpose - INFO - Epoch [113][2500/2672]	lr: 1.000e-06, eta: 10:36:04, time: 0.898, data_time: 0.352, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 11:16:05,339 - mmpose - INFO - Epoch [114][500/2672]	lr: 1.000e-06, eta: 10:26:16, time: 0.900, data_time: 0.353, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 11:23:26,545 - mmpose - INFO - Epoch [114][1000/2672]	lr: 1.000e-06, eta: 10:19:23, time: 0.882, data_time: 0.341, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 11:30:52,200 - mmpose - INFO - Epoch [114][1500/2672]	lr: 1.000e-06, eta: 10:12:31, time: 0.891, data_time: 0.351, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 11:38:16,555 - mmpose - INFO - Epoch [114][2000/2672]	lr: 1.000e-06, eta: 10:05:38, time: 0.889, data_time: 0.337, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 11:45:43,327 - mmpose - INFO - Epoch [114][2500/2672]	lr: 1.000e-06, eta: 9:58:46, time: 0.894, data_time: 0.338, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 11:55:39,906 - mmpose - INFO - Epoch [115][500/2672]	lr: 1.000e-06, eta: 9:48:58, time: 0.892, data_time: 0.358, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 12:03:04,457 - mmpose - INFO - Epoch [115][1000/2672]	lr: 1.000e-06, eta: 9:42:06, time: 0.889, data_time: 0.341, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 12:10:33,720 - mmpose - INFO - Epoch [115][1500/2672]	lr: 1.000e-06, eta: 9:35:14, time: 0.899, data_time: 0.355, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 12:17:56,727 - mmpose - INFO - Epoch [115][2000/2672]	lr: 1.000e-06, eta: 9:28:21, time: 0.886, data_time: 0.349, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 12:25:22,003 - mmpose - INFO - Epoch [115][2500/2672]	lr: 1.000e-06, eta: 9:21:28, time: 0.891, data_time: 0.345, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 12:35:28,771 - mmpose - INFO - Epoch [116][500/2672]	lr: 1.000e-06, eta: 9:11:43, time: 0.903, data_time: 0.355, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 12:42:55,202 - mmpose - INFO - Epoch [116][1000/2672]	lr: 1.000e-06, eta: 9:04:51, time: 0.893, data_time: 0.352, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 12:50:26,952 - mmpose - INFO - Epoch [116][1500/2672]	lr: 1.000e-06, eta: 8:57:59, time: 0.904, data_time: 0.349, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 12:57:56,273 - mmpose - INFO - Epoch [116][2000/2672]	lr: 1.000e-06, eta: 8:51:06, time: 0.899, data_time: 0.354, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 13:05:20,047 - mmpose - INFO - Epoch [116][2500/2672]	lr: 1.000e-06, eta: 8:44:13, time: 0.888, data_time: 0.343, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0017
+2023-01-22 13:15:18,153 - mmpose - INFO - Epoch [117][500/2672]	lr: 1.000e-06, eta: 8:34:29, time: 0.889, data_time: 0.357, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 13:22:44,559 - mmpose - INFO - Epoch [117][1000/2672]	lr: 1.000e-06, eta: 8:27:36, time: 0.893, data_time: 0.346, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 13:30:06,330 - mmpose - INFO - Epoch [117][1500/2672]	lr: 1.000e-06, eta: 8:20:42, time: 0.884, data_time: 0.347, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 13:37:35,694 - mmpose - INFO - Epoch [117][2000/2672]	lr: 1.000e-06, eta: 8:13:49, time: 0.899, data_time: 0.349, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 13:45:01,755 - mmpose - INFO - Epoch [117][2500/2672]	lr: 1.000e-06, eta: 8:06:55, time: 0.892, data_time: 0.351, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 13:55:06,472 - mmpose - INFO - Epoch [118][500/2672]	lr: 1.000e-06, eta: 7:57:14, time: 0.901, data_time: 0.350, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 14:02:30,785 - mmpose - INFO - Epoch [118][1000/2672]	lr: 1.000e-06, eta: 7:50:20, time: 0.889, data_time: 0.355, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 14:10:01,963 - mmpose - INFO - Epoch [118][1500/2672]	lr: 1.000e-06, eta: 7:43:27, time: 0.902, data_time: 0.339, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 14:17:23,565 - mmpose - INFO - Epoch [118][2000/2672]	lr: 1.000e-06, eta: 7:36:32, time: 0.883, data_time: 0.348, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 14:24:44,355 - mmpose - INFO - Epoch [118][2500/2672]	lr: 1.000e-06, eta: 7:29:37, time: 0.882, data_time: 0.352, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0017
+2023-01-22 14:34:43,873 - mmpose - INFO - Epoch [119][500/2672]	lr: 1.000e-06, eta: 7:19:57, time: 0.892, data_time: 0.351, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 14:42:13,434 - mmpose - INFO - Epoch [119][1000/2672]	lr: 1.000e-06, eta: 7:13:04, time: 0.899, data_time: 0.338, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 14:49:42,500 - mmpose - INFO - Epoch [119][1500/2672]	lr: 1.000e-06, eta: 7:06:10, time: 0.898, data_time: 0.342, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 14:57:10,627 - mmpose - INFO - Epoch [119][2000/2672]	lr: 1.000e-06, eta: 6:59:16, time: 0.896, data_time: 0.337, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 15:04:38,263 - mmpose - INFO - Epoch [119][2500/2672]	lr: 1.000e-06, eta: 6:52:22, time: 0.895, data_time: 0.349, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 15:14:36,476 - mmpose - INFO - Epoch [120][500/2672]	lr: 1.000e-06, eta: 6:42:43, time: 0.889, data_time: 0.354, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0017
+2023-01-22 15:21:59,543 - mmpose - INFO - Epoch [120][1000/2672]	lr: 1.000e-06, eta: 6:35:48, time: 0.886, data_time: 0.347, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 15:29:31,794 - mmpose - INFO - Epoch [120][1500/2672]	lr: 1.000e-06, eta: 6:28:55, time: 0.904, data_time: 0.356, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 15:37:01,431 - mmpose - INFO - Epoch [120][2000/2672]	lr: 1.000e-06, eta: 6:22:00, time: 0.899, data_time: 0.349, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 15:44:23,265 - mmpose - INFO - Epoch [120][2500/2672]	lr: 1.000e-06, eta: 6:15:05, time: 0.884, data_time: 0.338, memory: 9510, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-22 15:47:00,639 - mmpose - INFO - Saving checkpoint at 120 epochs
+2023-01-22 15:47:58,210 - mmpose - INFO - Epoch(val) [120][625]	AP: 0.6036, AP .5: 0.8098, AP .75: 0.6608, AP (M): 0.5167, AP (L): 0.7297, AR: 0.6450, AR .5: 0.8330, AR .75: 0.6982, AR (M): 0.5521, AR (L): 0.7762

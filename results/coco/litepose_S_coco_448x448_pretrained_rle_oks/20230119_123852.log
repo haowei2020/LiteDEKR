@@ -1,0 +1,1359 @@
+2023-01-19 12:38:53,021 - mmpose - INFO - Environment info:
+------------------------------------------------------------
+sys.platform: linux
+Python: 3.8.16 (default, Jan 17 2023, 23:13:24) [GCC 11.2.0]
+CUDA available: True
+GPU 0,1,2,3,4,5,6,7: Tesla V100-PCIE-16GB-LS
+CUDA_HOME: /usr/local/cuda
+NVCC: Cuda compilation tools, release 11.0, V11.0.221
+GCC: gcc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0
+PyTorch: 1.8.1+cu111
+PyTorch compiling details: PyTorch built with:
+  - GCC 7.3
+  - C++ Version: 201402
+  - Intel(R) Math Kernel Library Version 2020.0.0 Product Build 20191122 for Intel(R) 64 architecture applications
+  - Intel(R) MKL-DNN v1.7.0 (Git Hash 7aed236906b1f7a05c0917e5257a1af05e9ff683)
+  - OpenMP 201511 (a.k.a. OpenMP 4.5)
+  - NNPACK is enabled
+  - CPU capability usage: AVX2
+  - CUDA Runtime 11.1
+  - NVCC architecture flags: -gencode;arch=compute_37,code=sm_37;-gencode;arch=compute_50,code=sm_50;-gencode;arch=compute_60,code=sm_60;-gencode;arch=compute_70,code=sm_70;-gencode;arch=compute_75,code=sm_75;-gencode;arch=compute_80,code=sm_80;-gencode;arch=compute_86,code=sm_86
+  - CuDNN 8.0.5
+  - Magma 2.5.2
+  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, CUDA_VERSION=11.1, CUDNN_VERSION=8.0.5, CXX_COMPILER=/opt/rh/devtoolset-7/root/usr/bin/c++, CXX_FLAGS= -Wno-deprecated -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -fopenmp -DNDEBUG -DUSE_KINETO -DUSE_FBGEMM -DUSE_QNNPACK -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -O2 -fPIC -Wno-narrowing -Wall -Wextra -Werror=return-type -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-sign-compare -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function -Wno-unused-result -Wno-unused-local-typedefs -Wno-strict-overflow -Wno-strict-aliasing -Wno-error=deprecated-declarations -Wno-stringop-overflow -Wno-psabi -Wno-error=pedantic -Wno-error=redundant-decls -Wno-error=old-style-cast -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, PERF_WITH_AVX512=1, TORCH_VERSION=1.8.1, USE_CUDA=ON, USE_CUDNN=ON, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, 
+
+TorchVision: 0.9.1+cu111
+OpenCV: 4.7.0
+MMCV: 1.7.1
+MMCV Compiler: GCC 7.3
+MMCV CUDA Compiler: 11.1
+MMPose: 0.29.0+1f11d6c
+------------------------------------------------------------
+
+2023-01-19 12:38:53,022 - mmpose - INFO - Distributed training: True
+2023-01-19 12:39:02,186 - mmpose - INFO - Config:
+checkpoint_config = dict(interval=20)
+log_config = dict(interval=500, hooks=[dict(type='TextLoggerHook')])
+log_level = 'INFO'
+load_from = None
+resume_from = '/workspace/mmpose/out/litedekr/litepose_S_coco_448x448_pretrained_rle_oks/epoch_20.pth'
+dist_params = dict(backend='nccl')
+workflow = [('train', 1)]
+opencv_num_threads = 0
+mp_start_method = 'fork'
+dataset_info = dict(
+    dataset_name='coco',
+    paper_info=dict(
+        author=
+        'Lin, Tsung-Yi and Maire, Michael and Belongie, Serge and Hays, James and Perona, Pietro and Ramanan, Deva and Doll{\'a}r, Piotr and Zitnick, C Lawrence',
+        title='Microsoft coco: Common objects in context',
+        container='European conference on computer vision',
+        year='2014',
+        homepage='http://cocodataset.org/'),
+    keypoint_info=dict({
+        0:
+        dict(name='nose', id=0, color=[51, 153, 255], type='upper', swap=''),
+        1:
+        dict(
+            name='left_eye',
+            id=1,
+            color=[51, 153, 255],
+            type='upper',
+            swap='right_eye'),
+        2:
+        dict(
+            name='right_eye',
+            id=2,
+            color=[51, 153, 255],
+            type='upper',
+            swap='left_eye'),
+        3:
+        dict(
+            name='left_ear',
+            id=3,
+            color=[51, 153, 255],
+            type='upper',
+            swap='right_ear'),
+        4:
+        dict(
+            name='right_ear',
+            id=4,
+            color=[51, 153, 255],
+            type='upper',
+            swap='left_ear'),
+        5:
+        dict(
+            name='left_shoulder',
+            id=5,
+            color=[0, 255, 0],
+            type='upper',
+            swap='right_shoulder'),
+        6:
+        dict(
+            name='right_shoulder',
+            id=6,
+            color=[255, 128, 0],
+            type='upper',
+            swap='left_shoulder'),
+        7:
+        dict(
+            name='left_elbow',
+            id=7,
+            color=[0, 255, 0],
+            type='upper',
+            swap='right_elbow'),
+        8:
+        dict(
+            name='right_elbow',
+            id=8,
+            color=[255, 128, 0],
+            type='upper',
+            swap='left_elbow'),
+        9:
+        dict(
+            name='left_wrist',
+            id=9,
+            color=[0, 255, 0],
+            type='upper',
+            swap='right_wrist'),
+        10:
+        dict(
+            name='right_wrist',
+            id=10,
+            color=[255, 128, 0],
+            type='upper',
+            swap='left_wrist'),
+        11:
+        dict(
+            name='left_hip',
+            id=11,
+            color=[0, 255, 0],
+            type='lower',
+            swap='right_hip'),
+        12:
+        dict(
+            name='right_hip',
+            id=12,
+            color=[255, 128, 0],
+            type='lower',
+            swap='left_hip'),
+        13:
+        dict(
+            name='left_knee',
+            id=13,
+            color=[0, 255, 0],
+            type='lower',
+            swap='right_knee'),
+        14:
+        dict(
+            name='right_knee',
+            id=14,
+            color=[255, 128, 0],
+            type='lower',
+            swap='left_knee'),
+        15:
+        dict(
+            name='left_ankle',
+            id=15,
+            color=[0, 255, 0],
+            type='lower',
+            swap='right_ankle'),
+        16:
+        dict(
+            name='right_ankle',
+            id=16,
+            color=[255, 128, 0],
+            type='lower',
+            swap='left_ankle')
+    }),
+    skeleton_info=dict({
+        0:
+        dict(link=('left_ankle', 'left_knee'), id=0, color=[0, 255, 0]),
+        1:
+        dict(link=('left_knee', 'left_hip'), id=1, color=[0, 255, 0]),
+        2:
+        dict(link=('right_ankle', 'right_knee'), id=2, color=[255, 128, 0]),
+        3:
+        dict(link=('right_knee', 'right_hip'), id=3, color=[255, 128, 0]),
+        4:
+        dict(link=('left_hip', 'right_hip'), id=4, color=[51, 153, 255]),
+        5:
+        dict(link=('left_shoulder', 'left_hip'), id=5, color=[51, 153, 255]),
+        6:
+        dict(link=('right_shoulder', 'right_hip'), id=6, color=[51, 153, 255]),
+        7:
+        dict(
+            link=('left_shoulder', 'right_shoulder'),
+            id=7,
+            color=[51, 153, 255]),
+        8:
+        dict(link=('left_shoulder', 'left_elbow'), id=8, color=[0, 255, 0]),
+        9:
+        dict(
+            link=('right_shoulder', 'right_elbow'), id=9, color=[255, 128, 0]),
+        10:
+        dict(link=('left_elbow', 'left_wrist'), id=10, color=[0, 255, 0]),
+        11:
+        dict(link=('right_elbow', 'right_wrist'), id=11, color=[255, 128, 0]),
+        12:
+        dict(link=('left_eye', 'right_eye'), id=12, color=[51, 153, 255]),
+        13:
+        dict(link=('nose', 'left_eye'), id=13, color=[51, 153, 255]),
+        14:
+        dict(link=('nose', 'right_eye'), id=14, color=[51, 153, 255]),
+        15:
+        dict(link=('left_eye', 'left_ear'), id=15, color=[51, 153, 255]),
+        16:
+        dict(link=('right_eye', 'right_ear'), id=16, color=[51, 153, 255]),
+        17:
+        dict(link=('left_ear', 'left_shoulder'), id=17, color=[51, 153, 255]),
+        18:
+        dict(
+            link=('right_ear', 'right_shoulder'), id=18, color=[51, 153, 255])
+    }),
+    joint_weights=[
+        1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.2, 1.2, 1.5, 1.5, 1.0, 1.0, 1.2,
+        1.2, 1.5, 1.5
+    ],
+    sigmas=[
+        0.026, 0.025, 0.025, 0.035, 0.035, 0.079, 0.079, 0.072, 0.072, 0.062,
+        0.062, 0.107, 0.107, 0.087, 0.087, 0.089, 0.089
+    ])
+evaluation = dict(interval=20, metric='mAP', save_best='AP')
+optimizer = dict(type='Adam', lr=0.001)
+optimizer_config = dict(grad_clip=None)
+lr_config = dict(
+    policy='step',
+    warmup='linear',
+    warmup_iters=500,
+    warmup_ratio=0.001,
+    step=[40, 60, 90])
+total_epochs = 120
+channel_cfg = dict(
+    dataset_joints=17,
+    dataset_channel=[[
+        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
+    ]],
+    inference_channel=[
+        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
+    ])
+data_cfg = dict(
+    image_size=448,
+    base_size=256,
+    base_sigma=2,
+    heatmap_size=[112, 224],
+    num_joints=17,
+    dataset_channel=[[
+        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
+    ]],
+    inference_channel=[
+        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
+    ],
+    num_scales=2,
+    scale_aware_sigma=False)
+model = dict(
+    type='DisentangledKeypointRegressorWithRLE',
+    pretrained='/workspace/mmpose/LitePose-Auto-S-COCO.pth.tar',
+    backbone=dict(
+        type='LitePose',
+        cfg_arch=dict(
+            input_channel=16,
+            backbone_setting=[
+                dict(
+                    num_blocks=6,
+                    stride=2,
+                    channel=16,
+                    block_setting=[[6, 7], [6, 7], [6, 7], [6, 7], [6, 7],
+                                   [6, 7]]),
+                dict(
+                    num_blocks=8,
+                    stride=2,
+                    channel=32,
+                    block_setting=[[6, 7], [6, 7], [6, 7], [6, 7], [6, 7],
+                                   [6, 7], [6, 7], [6, 7]]),
+                dict(
+                    num_blocks=10,
+                    stride=2,
+                    channel=48,
+                    block_setting=[[6, 7], [6, 7], [6, 7], [6, 7], [6, 7],
+                                   [6, 7], [6, 7], [6, 7], [6, 7], [6, 7]]),
+                dict(
+                    num_blocks=10,
+                    stride=1,
+                    channel=120,
+                    block_setting=[[6, 7], [6, 7], [6, 7], [6, 7], [6, 7],
+                                   [6, 7], [6, 7], [6, 7], [6, 7], [6, 7]])
+            ]),
+        width_mult=1.0,
+        round_nearest=8,
+        frozen_stages=-1,
+        norm_eval=False),
+    keypoint_head=dict(
+        type='DEKRHeadWithRLELoss_new',
+        in_channels=(16, 32, 48, 120),
+        in_index=(1, 2, 3, 4),
+        num_heatmap_filters=32,
+        num_joints=17,
+        input_transform='resize_concat',
+        heatmap_loss=dict(
+            type='JointsMSELoss', use_target_weight=True, loss_weight=1.0),
+        offset_loss=dict(
+            type='RLELossForBottomUp',
+            use_target_weight=True,
+            supervise_empty=False,
+            residual=True,
+            q_dis='laplace',
+            loss_weight=0.004),
+        oks_loss=dict(type='OKSLoss', num_joints=17, loss_weight=1.0),
+        use_keypoint_heatmaps=True),
+    train_cfg=dict(),
+    test_cfg=dict(
+        num_joints=17,
+        max_num_people=30,
+        project2image=False,
+        align_corners=False,
+        max_pool_kernel=5,
+        use_sigma_as_score=False,
+        use_nms=True,
+        nms_dist_thr=0.05,
+        nms_joints_thr=8,
+        keypoint_threshold=0.1,
+        rescore_cfg=dict(
+            in_channels=74,
+            norm_indexes=(5, 6),
+            pretrained=
+            'https://download.openmmlab.com/mmpose/pretrain_models/kpt_rescore_coco-33d58c5c.pth'
+        ),
+        flip_test=True,
+        use_udp=False,
+        refine_keypoint_scores_by_keypoint_heatmaps=True))
+train_pipeline = [
+    dict(type='LoadImageFromFile'),
+    dict(
+        type='BottomUpRandomAffine',
+        rot_factor=30,
+        scale_factor=[0.75, 1.5],
+        scale_type='short',
+        trans_factor=40,
+        use_udp=False),
+    dict(type='BottomUpRandomFlip', flip_prob=0.5),
+    dict(type='ToTensor'),
+    dict(
+        type='NormalizeTensor',
+        mean=[0.485, 0.456, 0.406],
+        std=[0.229, 0.224, 0.225]),
+    dict(type='GetKeypointCenterArea'),
+    dict(
+        type='BottomUpGenerateHeatmapTarget',
+        sigma=(2, 4),
+        bg_weight=0.1,
+        gen_center_heatmap=True,
+        use_udp=False),
+    dict(type='BottomUpGenerateOffsetTarget', radius=4),
+    dict(
+        type='Collect',
+        keys=['img', 'heatmaps', 'masks', 'offsets', 'offset_weights'],
+        meta_keys=[])
+]
+val_pipeline = [
+    dict(type='LoadImageFromFile'),
+    dict(type='BottomUpGetImgSize', test_scale_factor=[1], use_udp=False),
+    dict(
+        type='BottomUpResizeAlign',
+        transforms=[
+            dict(type='ToTensor'),
+            dict(
+                type='NormalizeTensor',
+                mean=[0.485, 0.456, 0.406],
+                std=[0.229, 0.224, 0.225])
+        ],
+        use_udp=False),
+    dict(
+        type='Collect',
+        keys=['img'],
+        meta_keys=[
+            'image_file', 'aug_data', 'test_scale_factor', 'base_size',
+            'center', 'scale', 'flip_index', 'num_joints', 'skeleton',
+            'image_size', 'heatmap_size'
+        ])
+]
+test_pipeline = [
+    dict(type='LoadImageFromFile'),
+    dict(type='BottomUpGetImgSize', test_scale_factor=[1], use_udp=False),
+    dict(
+        type='BottomUpResizeAlign',
+        transforms=[
+            dict(type='ToTensor'),
+            dict(
+                type='NormalizeTensor',
+                mean=[0.485, 0.456, 0.406],
+                std=[0.229, 0.224, 0.225])
+        ],
+        use_udp=False),
+    dict(
+        type='Collect',
+        keys=['img'],
+        meta_keys=[
+            'image_file', 'aug_data', 'test_scale_factor', 'base_size',
+            'center', 'scale', 'flip_index', 'num_joints', 'skeleton',
+            'image_size', 'heatmap_size'
+        ])
+]
+data_root = '/workspace/mmpose/data/coco'
+data = dict(
+    workers_per_gpu=0,
+    train_dataloader=dict(samples_per_gpu=4),
+    val_dataloader=dict(samples_per_gpu=1),
+    test_dataloader=dict(samples_per_gpu=1),
+    train=dict(
+        type='BottomUpCocoDataset',
+        ann_file=
+        '/workspace/mmpose/data/coco/annotations/person_keypoints_train2017.json',
+        img_prefix='/workspace/mmpose/data/coco/train2017/',
+        data_cfg=dict(
+            image_size=448,
+            base_size=256,
+            base_sigma=2,
+            heatmap_size=[112, 224],
+            num_joints=17,
+            dataset_channel=[[
+                0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
+            ]],
+            inference_channel=[
+                0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
+            ],
+            num_scales=2,
+            scale_aware_sigma=False),
+        pipeline=[
+            dict(type='LoadImageFromFile'),
+            dict(
+                type='BottomUpRandomAffine',
+                rot_factor=30,
+                scale_factor=[0.75, 1.5],
+                scale_type='short',
+                trans_factor=40,
+                use_udp=False),
+            dict(type='BottomUpRandomFlip', flip_prob=0.5),
+            dict(type='ToTensor'),
+            dict(
+                type='NormalizeTensor',
+                mean=[0.485, 0.456, 0.406],
+                std=[0.229, 0.224, 0.225]),
+            dict(type='GetKeypointCenterArea'),
+            dict(
+                type='BottomUpGenerateHeatmapTarget',
+                sigma=(2, 4),
+                bg_weight=0.1,
+                gen_center_heatmap=True,
+                use_udp=False),
+            dict(type='BottomUpGenerateOffsetTarget', radius=4),
+            dict(
+                type='Collect',
+                keys=['img', 'heatmaps', 'masks', 'offsets', 'offset_weights'],
+                meta_keys=[])
+        ],
+        dataset_info=dict(
+            dataset_name='coco',
+            paper_info=dict(
+                author=
+                'Lin, Tsung-Yi and Maire, Michael and Belongie, Serge and Hays, James and Perona, Pietro and Ramanan, Deva and Doll{\'a}r, Piotr and Zitnick, C Lawrence',
+                title='Microsoft coco: Common objects in context',
+                container='European conference on computer vision',
+                year='2014',
+                homepage='http://cocodataset.org/'),
+            keypoint_info=dict({
+                0:
+                dict(
+                    name='nose',
+                    id=0,
+                    color=[51, 153, 255],
+                    type='upper',
+                    swap=''),
+                1:
+                dict(
+                    name='left_eye',
+                    id=1,
+                    color=[51, 153, 255],
+                    type='upper',
+                    swap='right_eye'),
+                2:
+                dict(
+                    name='right_eye',
+                    id=2,
+                    color=[51, 153, 255],
+                    type='upper',
+                    swap='left_eye'),
+                3:
+                dict(
+                    name='left_ear',
+                    id=3,
+                    color=[51, 153, 255],
+                    type='upper',
+                    swap='right_ear'),
+                4:
+                dict(
+                    name='right_ear',
+                    id=4,
+                    color=[51, 153, 255],
+                    type='upper',
+                    swap='left_ear'),
+                5:
+                dict(
+                    name='left_shoulder',
+                    id=5,
+                    color=[0, 255, 0],
+                    type='upper',
+                    swap='right_shoulder'),
+                6:
+                dict(
+                    name='right_shoulder',
+                    id=6,
+                    color=[255, 128, 0],
+                    type='upper',
+                    swap='left_shoulder'),
+                7:
+                dict(
+                    name='left_elbow',
+                    id=7,
+                    color=[0, 255, 0],
+                    type='upper',
+                    swap='right_elbow'),
+                8:
+                dict(
+                    name='right_elbow',
+                    id=8,
+                    color=[255, 128, 0],
+                    type='upper',
+                    swap='left_elbow'),
+                9:
+                dict(
+                    name='left_wrist',
+                    id=9,
+                    color=[0, 255, 0],
+                    type='upper',
+                    swap='right_wrist'),
+                10:
+                dict(
+                    name='right_wrist',
+                    id=10,
+                    color=[255, 128, 0],
+                    type='upper',
+                    swap='left_wrist'),
+                11:
+                dict(
+                    name='left_hip',
+                    id=11,
+                    color=[0, 255, 0],
+                    type='lower',
+                    swap='right_hip'),
+                12:
+                dict(
+                    name='right_hip',
+                    id=12,
+                    color=[255, 128, 0],
+                    type='lower',
+                    swap='left_hip'),
+                13:
+                dict(
+                    name='left_knee',
+                    id=13,
+                    color=[0, 255, 0],
+                    type='lower',
+                    swap='right_knee'),
+                14:
+                dict(
+                    name='right_knee',
+                    id=14,
+                    color=[255, 128, 0],
+                    type='lower',
+                    swap='left_knee'),
+                15:
+                dict(
+                    name='left_ankle',
+                    id=15,
+                    color=[0, 255, 0],
+                    type='lower',
+                    swap='right_ankle'),
+                16:
+                dict(
+                    name='right_ankle',
+                    id=16,
+                    color=[255, 128, 0],
+                    type='lower',
+                    swap='left_ankle')
+            }),
+            skeleton_info=dict({
+                0:
+                dict(
+                    link=('left_ankle', 'left_knee'), id=0, color=[0, 255, 0]),
+                1:
+                dict(link=('left_knee', 'left_hip'), id=1, color=[0, 255, 0]),
+                2:
+                dict(
+                    link=('right_ankle', 'right_knee'),
+                    id=2,
+                    color=[255, 128, 0]),
+                3:
+                dict(
+                    link=('right_knee', 'right_hip'),
+                    id=3,
+                    color=[255, 128, 0]),
+                4:
+                dict(
+                    link=('left_hip', 'right_hip'), id=4, color=[51, 153,
+                                                                 255]),
+                5:
+                dict(
+                    link=('left_shoulder', 'left_hip'),
+                    id=5,
+                    color=[51, 153, 255]),
+                6:
+                dict(
+                    link=('right_shoulder', 'right_hip'),
+                    id=6,
+                    color=[51, 153, 255]),
+                7:
+                dict(
+                    link=('left_shoulder', 'right_shoulder'),
+                    id=7,
+                    color=[51, 153, 255]),
+                8:
+                dict(
+                    link=('left_shoulder', 'left_elbow'),
+                    id=8,
+                    color=[0, 255, 0]),
+                9:
+                dict(
+                    link=('right_shoulder', 'right_elbow'),
+                    id=9,
+                    color=[255, 128, 0]),
+                10:
+                dict(
+                    link=('left_elbow', 'left_wrist'),
+                    id=10,
+                    color=[0, 255, 0]),
+                11:
+                dict(
+                    link=('right_elbow', 'right_wrist'),
+                    id=11,
+                    color=[255, 128, 0]),
+                12:
+                dict(
+                    link=('left_eye', 'right_eye'),
+                    id=12,
+                    color=[51, 153, 255]),
+                13:
+                dict(link=('nose', 'left_eye'), id=13, color=[51, 153, 255]),
+                14:
+                dict(link=('nose', 'right_eye'), id=14, color=[51, 153, 255]),
+                15:
+                dict(
+                    link=('left_eye', 'left_ear'), id=15, color=[51, 153,
+                                                                 255]),
+                16:
+                dict(
+                    link=('right_eye', 'right_ear'),
+                    id=16,
+                    color=[51, 153, 255]),
+                17:
+                dict(
+                    link=('left_ear', 'left_shoulder'),
+                    id=17,
+                    color=[51, 153, 255]),
+                18:
+                dict(
+                    link=('right_ear', 'right_shoulder'),
+                    id=18,
+                    color=[51, 153, 255])
+            }),
+            joint_weights=[
+                1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.2, 1.2, 1.5, 1.5, 1.0,
+                1.0, 1.2, 1.2, 1.5, 1.5
+            ],
+            sigmas=[
+                0.026, 0.025, 0.025, 0.035, 0.035, 0.079, 0.079, 0.072, 0.072,
+                0.062, 0.062, 0.107, 0.107, 0.087, 0.087, 0.089, 0.089
+            ])),
+    val=dict(
+        type='BottomUpCocoDataset',
+        ann_file=
+        '/workspace/mmpose/data/coco/annotations/person_keypoints_val2017.json',
+        img_prefix='/workspace/mmpose/data/coco/val2017/',
+        data_cfg=dict(
+            image_size=448,
+            base_size=256,
+            base_sigma=2,
+            heatmap_size=[112, 224],
+            num_joints=17,
+            dataset_channel=[[
+                0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
+            ]],
+            inference_channel=[
+                0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
+            ],
+            num_scales=2,
+            scale_aware_sigma=False),
+        pipeline=[
+            dict(type='LoadImageFromFile'),
+            dict(
+                type='BottomUpGetImgSize',
+                test_scale_factor=[1],
+                use_udp=False),
+            dict(
+                type='BottomUpResizeAlign',
+                transforms=[
+                    dict(type='ToTensor'),
+                    dict(
+                        type='NormalizeTensor',
+                        mean=[0.485, 0.456, 0.406],
+                        std=[0.229, 0.224, 0.225])
+                ],
+                use_udp=False),
+            dict(
+                type='Collect',
+                keys=['img'],
+                meta_keys=[
+                    'image_file', 'aug_data', 'test_scale_factor', 'base_size',
+                    'center', 'scale', 'flip_index', 'num_joints', 'skeleton',
+                    'image_size', 'heatmap_size'
+                ])
+        ],
+        dataset_info=dict(
+            dataset_name='coco',
+            paper_info=dict(
+                author=
+                'Lin, Tsung-Yi and Maire, Michael and Belongie, Serge and Hays, James and Perona, Pietro and Ramanan, Deva and Doll{\'a}r, Piotr and Zitnick, C Lawrence',
+                title='Microsoft coco: Common objects in context',
+                container='European conference on computer vision',
+                year='2014',
+                homepage='http://cocodataset.org/'),
+            keypoint_info=dict({
+                0:
+                dict(
+                    name='nose',
+                    id=0,
+                    color=[51, 153, 255],
+                    type='upper',
+                    swap=''),
+                1:
+                dict(
+                    name='left_eye',
+                    id=1,
+                    color=[51, 153, 255],
+                    type='upper',
+                    swap='right_eye'),
+                2:
+                dict(
+                    name='right_eye',
+                    id=2,
+                    color=[51, 153, 255],
+                    type='upper',
+                    swap='left_eye'),
+                3:
+                dict(
+                    name='left_ear',
+                    id=3,
+                    color=[51, 153, 255],
+                    type='upper',
+                    swap='right_ear'),
+                4:
+                dict(
+                    name='right_ear',
+                    id=4,
+                    color=[51, 153, 255],
+                    type='upper',
+                    swap='left_ear'),
+                5:
+                dict(
+                    name='left_shoulder',
+                    id=5,
+                    color=[0, 255, 0],
+                    type='upper',
+                    swap='right_shoulder'),
+                6:
+                dict(
+                    name='right_shoulder',
+                    id=6,
+                    color=[255, 128, 0],
+                    type='upper',
+                    swap='left_shoulder'),
+                7:
+                dict(
+                    name='left_elbow',
+                    id=7,
+                    color=[0, 255, 0],
+                    type='upper',
+                    swap='right_elbow'),
+                8:
+                dict(
+                    name='right_elbow',
+                    id=8,
+                    color=[255, 128, 0],
+                    type='upper',
+                    swap='left_elbow'),
+                9:
+                dict(
+                    name='left_wrist',
+                    id=9,
+                    color=[0, 255, 0],
+                    type='upper',
+                    swap='right_wrist'),
+                10:
+                dict(
+                    name='right_wrist',
+                    id=10,
+                    color=[255, 128, 0],
+                    type='upper',
+                    swap='left_wrist'),
+                11:
+                dict(
+                    name='left_hip',
+                    id=11,
+                    color=[0, 255, 0],
+                    type='lower',
+                    swap='right_hip'),
+                12:
+                dict(
+                    name='right_hip',
+                    id=12,
+                    color=[255, 128, 0],
+                    type='lower',
+                    swap='left_hip'),
+                13:
+                dict(
+                    name='left_knee',
+                    id=13,
+                    color=[0, 255, 0],
+                    type='lower',
+                    swap='right_knee'),
+                14:
+                dict(
+                    name='right_knee',
+                    id=14,
+                    color=[255, 128, 0],
+                    type='lower',
+                    swap='left_knee'),
+                15:
+                dict(
+                    name='left_ankle',
+                    id=15,
+                    color=[0, 255, 0],
+                    type='lower',
+                    swap='right_ankle'),
+                16:
+                dict(
+                    name='right_ankle',
+                    id=16,
+                    color=[255, 128, 0],
+                    type='lower',
+                    swap='left_ankle')
+            }),
+            skeleton_info=dict({
+                0:
+                dict(
+                    link=('left_ankle', 'left_knee'), id=0, color=[0, 255, 0]),
+                1:
+                dict(link=('left_knee', 'left_hip'), id=1, color=[0, 255, 0]),
+                2:
+                dict(
+                    link=('right_ankle', 'right_knee'),
+                    id=2,
+                    color=[255, 128, 0]),
+                3:
+                dict(
+                    link=('right_knee', 'right_hip'),
+                    id=3,
+                    color=[255, 128, 0]),
+                4:
+                dict(
+                    link=('left_hip', 'right_hip'), id=4, color=[51, 153,
+                                                                 255]),
+                5:
+                dict(
+                    link=('left_shoulder', 'left_hip'),
+                    id=5,
+                    color=[51, 153, 255]),
+                6:
+                dict(
+                    link=('right_shoulder', 'right_hip'),
+                    id=6,
+                    color=[51, 153, 255]),
+                7:
+                dict(
+                    link=('left_shoulder', 'right_shoulder'),
+                    id=7,
+                    color=[51, 153, 255]),
+                8:
+                dict(
+                    link=('left_shoulder', 'left_elbow'),
+                    id=8,
+                    color=[0, 255, 0]),
+                9:
+                dict(
+                    link=('right_shoulder', 'right_elbow'),
+                    id=9,
+                    color=[255, 128, 0]),
+                10:
+                dict(
+                    link=('left_elbow', 'left_wrist'),
+                    id=10,
+                    color=[0, 255, 0]),
+                11:
+                dict(
+                    link=('right_elbow', 'right_wrist'),
+                    id=11,
+                    color=[255, 128, 0]),
+                12:
+                dict(
+                    link=('left_eye', 'right_eye'),
+                    id=12,
+                    color=[51, 153, 255]),
+                13:
+                dict(link=('nose', 'left_eye'), id=13, color=[51, 153, 255]),
+                14:
+                dict(link=('nose', 'right_eye'), id=14, color=[51, 153, 255]),
+                15:
+                dict(
+                    link=('left_eye', 'left_ear'), id=15, color=[51, 153,
+                                                                 255]),
+                16:
+                dict(
+                    link=('right_eye', 'right_ear'),
+                    id=16,
+                    color=[51, 153, 255]),
+                17:
+                dict(
+                    link=('left_ear', 'left_shoulder'),
+                    id=17,
+                    color=[51, 153, 255]),
+                18:
+                dict(
+                    link=('right_ear', 'right_shoulder'),
+                    id=18,
+                    color=[51, 153, 255])
+            }),
+            joint_weights=[
+                1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.2, 1.2, 1.5, 1.5, 1.0,
+                1.0, 1.2, 1.2, 1.5, 1.5
+            ],
+            sigmas=[
+                0.026, 0.025, 0.025, 0.035, 0.035, 0.079, 0.079, 0.072, 0.072,
+                0.062, 0.062, 0.107, 0.107, 0.087, 0.087, 0.089, 0.089
+            ])),
+    test=dict(
+        type='BottomUpCocoDataset',
+        ann_file=
+        '/workspace/mmpose/data/coco/annotations/person_keypoints_val2017.json',
+        img_prefix='/workspace/mmpose/data/coco/val2017/',
+        data_cfg=dict(
+            image_size=448,
+            base_size=256,
+            base_sigma=2,
+            heatmap_size=[112, 224],
+            num_joints=17,
+            dataset_channel=[[
+                0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
+            ]],
+            inference_channel=[
+                0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
+            ],
+            num_scales=2,
+            scale_aware_sigma=False),
+        pipeline=[
+            dict(type='LoadImageFromFile'),
+            dict(
+                type='BottomUpGetImgSize',
+                test_scale_factor=[1],
+                use_udp=False),
+            dict(
+                type='BottomUpResizeAlign',
+                transforms=[
+                    dict(type='ToTensor'),
+                    dict(
+                        type='NormalizeTensor',
+                        mean=[0.485, 0.456, 0.406],
+                        std=[0.229, 0.224, 0.225])
+                ],
+                use_udp=False),
+            dict(
+                type='Collect',
+                keys=['img'],
+                meta_keys=[
+                    'image_file', 'aug_data', 'test_scale_factor', 'base_size',
+                    'center', 'scale', 'flip_index', 'num_joints', 'skeleton',
+                    'image_size', 'heatmap_size'
+                ])
+        ],
+        dataset_info=dict(
+            dataset_name='coco',
+            paper_info=dict(
+                author=
+                'Lin, Tsung-Yi and Maire, Michael and Belongie, Serge and Hays, James and Perona, Pietro and Ramanan, Deva and Doll{\'a}r, Piotr and Zitnick, C Lawrence',
+                title='Microsoft coco: Common objects in context',
+                container='European conference on computer vision',
+                year='2014',
+                homepage='http://cocodataset.org/'),
+            keypoint_info=dict({
+                0:
+                dict(
+                    name='nose',
+                    id=0,
+                    color=[51, 153, 255],
+                    type='upper',
+                    swap=''),
+                1:
+                dict(
+                    name='left_eye',
+                    id=1,
+                    color=[51, 153, 255],
+                    type='upper',
+                    swap='right_eye'),
+                2:
+                dict(
+                    name='right_eye',
+                    id=2,
+                    color=[51, 153, 255],
+                    type='upper',
+                    swap='left_eye'),
+                3:
+                dict(
+                    name='left_ear',
+                    id=3,
+                    color=[51, 153, 255],
+                    type='upper',
+                    swap='right_ear'),
+                4:
+                dict(
+                    name='right_ear',
+                    id=4,
+                    color=[51, 153, 255],
+                    type='upper',
+                    swap='left_ear'),
+                5:
+                dict(
+                    name='left_shoulder',
+                    id=5,
+                    color=[0, 255, 0],
+                    type='upper',
+                    swap='right_shoulder'),
+                6:
+                dict(
+                    name='right_shoulder',
+                    id=6,
+                    color=[255, 128, 0],
+                    type='upper',
+                    swap='left_shoulder'),
+                7:
+                dict(
+                    name='left_elbow',
+                    id=7,
+                    color=[0, 255, 0],
+                    type='upper',
+                    swap='right_elbow'),
+                8:
+                dict(
+                    name='right_elbow',
+                    id=8,
+                    color=[255, 128, 0],
+                    type='upper',
+                    swap='left_elbow'),
+                9:
+                dict(
+                    name='left_wrist',
+                    id=9,
+                    color=[0, 255, 0],
+                    type='upper',
+                    swap='right_wrist'),
+                10:
+                dict(
+                    name='right_wrist',
+                    id=10,
+                    color=[255, 128, 0],
+                    type='upper',
+                    swap='left_wrist'),
+                11:
+                dict(
+                    name='left_hip',
+                    id=11,
+                    color=[0, 255, 0],
+                    type='lower',
+                    swap='right_hip'),
+                12:
+                dict(
+                    name='right_hip',
+                    id=12,
+                    color=[255, 128, 0],
+                    type='lower',
+                    swap='left_hip'),
+                13:
+                dict(
+                    name='left_knee',
+                    id=13,
+                    color=[0, 255, 0],
+                    type='lower',
+                    swap='right_knee'),
+                14:
+                dict(
+                    name='right_knee',
+                    id=14,
+                    color=[255, 128, 0],
+                    type='lower',
+                    swap='left_knee'),
+                15:
+                dict(
+                    name='left_ankle',
+                    id=15,
+                    color=[0, 255, 0],
+                    type='lower',
+                    swap='right_ankle'),
+                16:
+                dict(
+                    name='right_ankle',
+                    id=16,
+                    color=[255, 128, 0],
+                    type='lower',
+                    swap='left_ankle')
+            }),
+            skeleton_info=dict({
+                0:
+                dict(
+                    link=('left_ankle', 'left_knee'), id=0, color=[0, 255, 0]),
+                1:
+                dict(link=('left_knee', 'left_hip'), id=1, color=[0, 255, 0]),
+                2:
+                dict(
+                    link=('right_ankle', 'right_knee'),
+                    id=2,
+                    color=[255, 128, 0]),
+                3:
+                dict(
+                    link=('right_knee', 'right_hip'),
+                    id=3,
+                    color=[255, 128, 0]),
+                4:
+                dict(
+                    link=('left_hip', 'right_hip'), id=4, color=[51, 153,
+                                                                 255]),
+                5:
+                dict(
+                    link=('left_shoulder', 'left_hip'),
+                    id=5,
+                    color=[51, 153, 255]),
+                6:
+                dict(
+                    link=('right_shoulder', 'right_hip'),
+                    id=6,
+                    color=[51, 153, 255]),
+                7:
+                dict(
+                    link=('left_shoulder', 'right_shoulder'),
+                    id=7,
+                    color=[51, 153, 255]),
+                8:
+                dict(
+                    link=('left_shoulder', 'left_elbow'),
+                    id=8,
+                    color=[0, 255, 0]),
+                9:
+                dict(
+                    link=('right_shoulder', 'right_elbow'),
+                    id=9,
+                    color=[255, 128, 0]),
+                10:
+                dict(
+                    link=('left_elbow', 'left_wrist'),
+                    id=10,
+                    color=[0, 255, 0]),
+                11:
+                dict(
+                    link=('right_elbow', 'right_wrist'),
+                    id=11,
+                    color=[255, 128, 0]),
+                12:
+                dict(
+                    link=('left_eye', 'right_eye'),
+                    id=12,
+                    color=[51, 153, 255]),
+                13:
+                dict(link=('nose', 'left_eye'), id=13, color=[51, 153, 255]),
+                14:
+                dict(link=('nose', 'right_eye'), id=14, color=[51, 153, 255]),
+                15:
+                dict(
+                    link=('left_eye', 'left_ear'), id=15, color=[51, 153,
+                                                                 255]),
+                16:
+                dict(
+                    link=('right_eye', 'right_ear'),
+                    id=16,
+                    color=[51, 153, 255]),
+                17:
+                dict(
+                    link=('left_ear', 'left_shoulder'),
+                    id=17,
+                    color=[51, 153, 255]),
+                18:
+                dict(
+                    link=('right_ear', 'right_shoulder'),
+                    id=18,
+                    color=[51, 153, 255])
+            }),
+            joint_weights=[
+                1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.2, 1.2, 1.5, 1.5, 1.0,
+                1.0, 1.2, 1.2, 1.5, 1.5
+            ],
+            sigmas=[
+                0.026, 0.025, 0.025, 0.035, 0.035, 0.079, 0.079, 0.072, 0.072,
+                0.062, 0.062, 0.107, 0.107, 0.087, 0.087, 0.089, 0.089
+            ])))
+work_dir = '/workspace/mmpose/out/litedekr/litepose_S_coco_448x448_pretrained_rle_oks'
+gpu_ids = range(0, 8)
+
+2023-01-19 12:39:08,830 - mmpose - INFO - Set random seed to 1959491371, deterministic: False
+2023-01-19 12:39:32,946 - mmpose - INFO - load checkpoint from local path: /workspace/mmpose/out/litedekr/litepose_S_coco_448x448_pretrained_rle_oks/epoch_20.pth
+2023-01-19 12:39:33,284 - mmpose - INFO - resumed epoch 20, iter 40080
+2023-01-19 12:39:33,286 - mmpose - INFO - Start running, host: root@90f699821803, work_dir: /workspace/mmpose/out/litedekr/litepose_S_coco_448x448_pretrained_rle_oks
+2023-01-19 12:39:33,287 - mmpose - INFO - Hooks will be executed in the following order:
+before_run:
+(VERY_HIGH   ) StepLrUpdaterHook                  
+(NORMAL      ) CheckpointHook                     
+(NORMAL      ) DistEvalHook                       
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+before_train_epoch:
+(VERY_HIGH   ) StepLrUpdaterHook                  
+(NORMAL      ) DistSamplerSeedHook                
+(NORMAL      ) DistEvalHook                       
+(LOW         ) IterTimerHook                      
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+before_train_iter:
+(VERY_HIGH   ) StepLrUpdaterHook                  
+(NORMAL      ) DistEvalHook                       
+(LOW         ) IterTimerHook                      
+ -------------------- 
+after_train_iter:
+(ABOVE_NORMAL) OptimizerHook                      
+(NORMAL      ) CheckpointHook                     
+(NORMAL      ) DistEvalHook                       
+(LOW         ) IterTimerHook                      
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+after_train_epoch:
+(NORMAL      ) CheckpointHook                     
+(NORMAL      ) DistEvalHook                       
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+before_val_epoch:
+(NORMAL      ) DistSamplerSeedHook                
+(LOW         ) IterTimerHook                      
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+before_val_iter:
+(LOW         ) IterTimerHook                      
+ -------------------- 
+after_val_iter:
+(LOW         ) IterTimerHook                      
+ -------------------- 
+after_val_epoch:
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+after_run:
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+2023-01-19 12:39:33,287 - mmpose - INFO - workflow: [('train', 1)], max: 120 epochs
+2023-01-19 12:39:33,287 - mmpose - INFO - Checkpoints will be saved to /workspace/mmpose/out/litedekr/litepose_S_coco_448x448_pretrained_rle_oks by HardDiskBackend.
+2023-01-19 12:48:48,128 - mmpose - INFO - Epoch [21][500/2004]	lr: 1.000e-03, eta: 2 days, 13:36:57, time: 1.110, data_time: 0.484, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 12:57:57,946 - mmpose - INFO - Epoch [21][1000/2004]	lr: 1.000e-03, eta: 2 days, 13:11:05, time: 1.100, data_time: 0.479, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 13:07:11,842 - mmpose - INFO - Epoch [21][1500/2004]	lr: 1.000e-03, eta: 2 days, 13:05:21, time: 1.108, data_time: 0.480, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 13:16:31,508 - mmpose - INFO - Epoch [21][2000/2004]	lr: 1.000e-03, eta: 2 days, 13:07:23, time: 1.119, data_time: 0.486, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 13:25:57,056 - mmpose - INFO - Epoch [22][500/2004]	lr: 1.000e-03, eta: 2 days, 13:01:32, time: 1.123, data_time: 0.498, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 13:35:27,010 - mmpose - INFO - Epoch [22][1000/2004]	lr: 1.000e-03, eta: 2 days, 13:08:34, time: 1.140, data_time: 0.502, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 13:44:52,987 - mmpose - INFO - Epoch [22][1500/2004]	lr: 1.000e-03, eta: 2 days, 13:07:11, time: 1.132, data_time: 0.504, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 13:54:21,728 - mmpose - INFO - Epoch [22][2000/2004]	lr: 1.000e-03, eta: 2 days, 13:06:01, time: 1.137, data_time: 0.512, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0020
+2023-01-19 14:03:37,670 - mmpose - INFO - Epoch [23][500/2004]	lr: 1.000e-03, eta: 2 days, 12:46:45, time: 1.102, data_time: 0.470, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 14:12:53,030 - mmpose - INFO - Epoch [23][1000/2004]	lr: 1.000e-03, eta: 2 days, 12:35:25, time: 1.111, data_time: 0.476, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 14:22:07,429 - mmpose - INFO - Epoch [23][1500/2004]	lr: 1.000e-03, eta: 2 days, 12:23:52, time: 1.109, data_time: 0.468, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 14:31:21,649 - mmpose - INFO - Epoch [23][2000/2004]	lr: 1.000e-03, eta: 2 days, 12:12:38, time: 1.108, data_time: 0.478, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0020
+2023-01-19 14:40:38,951 - mmpose - INFO - Epoch [24][500/2004]	lr: 1.000e-03, eta: 2 days, 11:59:01, time: 1.107, data_time: 0.477, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 14:49:50,484 - mmpose - INFO - Epoch [24][1000/2004]	lr: 1.000e-03, eta: 2 days, 11:47:17, time: 1.103, data_time: 0.477, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 14:58:58,531 - mmpose - INFO - Epoch [24][1500/2004]	lr: 1.000e-03, eta: 2 days, 11:34:23, time: 1.096, data_time: 0.465, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 15:08:04,669 - mmpose - INFO - Epoch [24][2000/2004]	lr: 1.000e-03, eta: 2 days, 11:21:12, time: 1.092, data_time: 0.462, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 15:17:18,147 - mmpose - INFO - Epoch [25][500/2004]	lr: 1.000e-03, eta: 2 days, 11:07:50, time: 1.098, data_time: 0.471, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 15:26:22,993 - mmpose - INFO - Epoch [25][1000/2004]	lr: 1.000e-03, eta: 2 days, 10:55:06, time: 1.090, data_time: 0.470, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 15:35:38,882 - mmpose - INFO - Epoch [25][1500/2004]	lr: 1.000e-03, eta: 2 days, 10:46:27, time: 1.112, data_time: 0.483, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0020
+2023-01-19 15:44:50,323 - mmpose - INFO - Epoch [25][2000/2004]	lr: 1.000e-03, eta: 2 days, 10:36:20, time: 1.103, data_time: 0.469, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 15:54:08,190 - mmpose - INFO - Epoch [26][500/2004]	lr: 1.000e-03, eta: 2 days, 10:25:38, time: 1.108, data_time: 0.476, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 16:03:20,789 - mmpose - INFO - Epoch [26][1000/2004]	lr: 1.000e-03, eta: 2 days, 10:16:02, time: 1.105, data_time: 0.472, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 16:12:21,415 - mmpose - INFO - Epoch [26][1500/2004]	lr: 1.000e-03, eta: 2 days, 10:03:12, time: 1.081, data_time: 0.469, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 16:21:32,979 - mmpose - INFO - Epoch [26][2000/2004]	lr: 1.000e-03, eta: 2 days, 9:53:33, time: 1.103, data_time: 0.473, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 16:30:49,810 - mmpose - INFO - Epoch [27][500/2004]	lr: 1.000e-03, eta: 2 days, 9:43:02, time: 1.105, data_time: 0.477, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 16:40:03,381 - mmpose - INFO - Epoch [27][1000/2004]	lr: 1.000e-03, eta: 2 days, 9:33:57, time: 1.107, data_time: 0.490, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 16:49:13,807 - mmpose - INFO - Epoch [27][1500/2004]	lr: 1.000e-03, eta: 2 days, 9:24:09, time: 1.101, data_time: 0.484, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 16:58:18,635 - mmpose - INFO - Epoch [27][2000/2004]	lr: 1.000e-03, eta: 2 days, 9:13:09, time: 1.090, data_time: 0.473, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 17:07:33,826 - mmpose - INFO - Epoch [28][500/2004]	lr: 1.000e-03, eta: 2 days, 9:02:27, time: 1.101, data_time: 0.475, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 17:16:36,688 - mmpose - INFO - Epoch [28][1000/2004]	lr: 1.000e-03, eta: 2 days, 8:51:17, time: 1.086, data_time: 0.461, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 17:25:47,925 - mmpose - INFO - Epoch [28][1500/2004]	lr: 1.000e-03, eta: 2 days, 8:41:55, time: 1.102, data_time: 0.478, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 17:34:52,300 - mmpose - INFO - Epoch [28][2000/2004]	lr: 1.000e-03, eta: 2 days, 8:31:14, time: 1.089, data_time: 0.470, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 17:44:11,521 - mmpose - INFO - Epoch [29][500/2004]	lr: 1.000e-03, eta: 2 days, 8:21:45, time: 1.110, data_time: 0.486, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 17:53:22,619 - mmpose - INFO - Epoch [29][1000/2004]	lr: 1.000e-03, eta: 2 days, 8:12:26, time: 1.102, data_time: 0.470, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 18:02:30,866 - mmpose - INFO - Epoch [29][1500/2004]	lr: 1.000e-03, eta: 2 days, 8:02:37, time: 1.096, data_time: 0.463, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 18:11:36,293 - mmpose - INFO - Epoch [29][2000/2004]	lr: 1.000e-03, eta: 2 days, 7:52:23, time: 1.091, data_time: 0.464, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 18:20:50,900 - mmpose - INFO - Epoch [30][500/2004]	lr: 1.000e-03, eta: 2 days, 7:42:13, time: 1.101, data_time: 0.487, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 18:29:56,999 - mmpose - INFO - Epoch [30][1000/2004]	lr: 1.000e-03, eta: 2 days, 7:32:12, time: 1.092, data_time: 0.471, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 18:39:05,070 - mmpose - INFO - Epoch [30][1500/2004]	lr: 1.000e-03, eta: 2 days, 7:22:32, time: 1.096, data_time: 0.477, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 18:48:09,777 - mmpose - INFO - Epoch [30][2000/2004]	lr: 1.000e-03, eta: 2 days, 7:12:23, time: 1.089, data_time: 0.462, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 18:57:21,268 - mmpose - INFO - Epoch [31][500/2004]	lr: 1.000e-03, eta: 2 days, 7:01:58, time: 1.095, data_time: 0.482, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 19:06:38,817 - mmpose - INFO - Epoch [31][1000/2004]	lr: 1.000e-03, eta: 2 days, 6:53:45, time: 1.115, data_time: 0.476, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 19:15:45,851 - mmpose - INFO - Epoch [31][1500/2004]	lr: 1.000e-03, eta: 2 days, 6:44:02, time: 1.094, data_time: 0.492, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 19:24:53,415 - mmpose - INFO - Epoch [31][2000/2004]	lr: 1.000e-03, eta: 2 days, 6:34:24, time: 1.095, data_time: 0.479, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 19:34:06,606 - mmpose - INFO - Epoch [32][500/2004]	lr: 1.000e-03, eta: 2 days, 6:24:19, time: 1.098, data_time: 0.477, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 19:43:18,871 - mmpose - INFO - Epoch [32][1000/2004]	lr: 1.000e-03, eta: 2 days, 6:15:21, time: 1.105, data_time: 0.476, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 19:52:24,660 - mmpose - INFO - Epoch [32][1500/2004]	lr: 1.000e-03, eta: 2 days, 6:05:34, time: 1.092, data_time: 0.468, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 20:01:34,260 - mmpose - INFO - Epoch [32][2000/2004]	lr: 1.000e-03, eta: 2 days, 5:56:17, time: 1.099, data_time: 0.468, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 20:10:50,807 - mmpose - INFO - Epoch [33][500/2004]	lr: 1.000e-03, eta: 2 days, 5:46:43, time: 1.105, data_time: 0.475, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 20:20:00,546 - mmpose - INFO - Epoch [33][1000/2004]	lr: 1.000e-03, eta: 2 days, 5:37:28, time: 1.099, data_time: 0.474, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 20:29:04,015 - mmpose - INFO - Epoch [33][1500/2004]	lr: 1.000e-03, eta: 2 days, 5:27:29, time: 1.087, data_time: 0.492, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 20:38:10,238 - mmpose - INFO - Epoch [33][2000/2004]	lr: 1.000e-03, eta: 2 days, 5:17:52, time: 1.092, data_time: 0.474, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 20:47:26,686 - mmpose - INFO - Epoch [34][500/2004]	lr: 1.000e-03, eta: 2 days, 5:08:21, time: 1.104, data_time: 0.480, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 20:56:37,518 - mmpose - INFO - Epoch [34][1000/2004]	lr: 1.000e-03, eta: 2 days, 4:59:15, time: 1.102, data_time: 0.464, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 21:05:48,994 - mmpose - INFO - Epoch [34][1500/2004]	lr: 1.000e-03, eta: 2 days, 4:50:13, time: 1.103, data_time: 0.463, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 21:14:57,833 - mmpose - INFO - Epoch [34][2000/2004]	lr: 1.000e-03, eta: 2 days, 4:40:54, time: 1.098, data_time: 0.471, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 21:24:12,416 - mmpose - INFO - Epoch [35][500/2004]	lr: 1.000e-03, eta: 2 days, 4:31:14, time: 1.101, data_time: 0.478, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 21:33:22,469 - mmpose - INFO - Epoch [35][1000/2004]	lr: 1.000e-03, eta: 2 days, 4:22:03, time: 1.100, data_time: 0.460, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 21:42:29,061 - mmpose - INFO - Epoch [35][1500/2004]	lr: 1.000e-03, eta: 2 days, 4:12:32, time: 1.093, data_time: 0.478, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 21:51:36,255 - mmpose - INFO - Epoch [35][2000/2004]	lr: 1.000e-03, eta: 2 days, 4:03:06, time: 1.094, data_time: 0.478, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 22:00:51,161 - mmpose - INFO - Epoch [36][500/2004]	lr: 1.000e-03, eta: 2 days, 3:53:30, time: 1.101, data_time: 0.466, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 22:09:58,585 - mmpose - INFO - Epoch [36][1000/2004]	lr: 1.000e-03, eta: 2 days, 3:44:06, time: 1.095, data_time: 0.471, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 22:19:00,172 - mmpose - INFO - Epoch [36][1500/2004]	lr: 1.000e-03, eta: 2 days, 3:34:12, time: 1.083, data_time: 0.471, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 22:28:05,889 - mmpose - INFO - Epoch [36][2000/2004]	lr: 1.000e-03, eta: 2 days, 3:24:40, time: 1.091, data_time: 0.461, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 22:37:19,895 - mmpose - INFO - Epoch [37][500/2004]	lr: 1.000e-03, eta: 2 days, 3:15:07, time: 1.101, data_time: 0.470, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 22:46:26,772 - mmpose - INFO - Epoch [37][1000/2004]	lr: 1.000e-03, eta: 2 days, 3:05:43, time: 1.094, data_time: 0.452, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 22:55:33,987 - mmpose - INFO - Epoch [37][1500/2004]	lr: 1.000e-03, eta: 2 days, 2:56:21, time: 1.094, data_time: 0.465, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 23:04:39,905 - mmpose - INFO - Epoch [37][2000/2004]	lr: 1.000e-03, eta: 2 days, 2:46:54, time: 1.092, data_time: 0.469, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 23:13:50,478 - mmpose - INFO - Epoch [38][500/2004]	lr: 1.000e-03, eta: 2 days, 2:37:04, time: 1.093, data_time: 0.489, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 23:23:00,266 - mmpose - INFO - Epoch [38][1000/2004]	lr: 1.000e-03, eta: 2 days, 2:27:57, time: 1.100, data_time: 0.469, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 23:32:04,724 - mmpose - INFO - Epoch [38][1500/2004]	lr: 1.000e-03, eta: 2 days, 2:18:24, time: 1.089, data_time: 0.461, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 23:41:13,626 - mmpose - INFO - Epoch [38][2000/2004]	lr: 1.000e-03, eta: 2 days, 2:09:13, time: 1.098, data_time: 0.458, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 23:50:33,270 - mmpose - INFO - Epoch [39][500/2004]	lr: 1.000e-03, eta: 2 days, 2:00:05, time: 1.110, data_time: 0.472, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-19 23:59:42,095 - mmpose - INFO - Epoch [39][1000/2004]	lr: 1.000e-03, eta: 2 days, 1:50:54, time: 1.098, data_time: 0.484, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-20 00:08:52,360 - mmpose - INFO - Epoch [39][1500/2004]	lr: 1.000e-03, eta: 2 days, 1:41:48, time: 1.101, data_time: 0.470, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-20 00:17:57,786 - mmpose - INFO - Epoch [39][2000/2004]	lr: 1.000e-03, eta: 2 days, 1:32:22, time: 1.091, data_time: 0.480, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-20 00:27:13,721 - mmpose - INFO - Epoch [40][500/2004]	lr: 1.000e-03, eta: 2 days, 1:22:59, time: 1.103, data_time: 0.475, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-20 00:36:17,820 - mmpose - INFO - Epoch [40][1000/2004]	lr: 1.000e-03, eta: 2 days, 1:13:28, time: 1.088, data_time: 0.477, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-20 00:45:24,397 - mmpose - INFO - Epoch [40][1500/2004]	lr: 1.000e-03, eta: 2 days, 1:04:08, time: 1.093, data_time: 0.490, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-20 00:54:35,781 - mmpose - INFO - Epoch [40][2000/2004]	lr: 1.000e-03, eta: 2 days, 0:55:08, time: 1.103, data_time: 0.461, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-20 00:54:39,786 - mmpose - INFO - Saving checkpoint at 40 epochs
+2023-01-20 00:55:39,550 - mmpose - INFO - Now best checkpoint is saved as best_AP_epoch_40.pth.
+2023-01-20 00:55:39,550 - mmpose - INFO - Best AP is 0.5767 at 40 epoch.
+2023-01-20 00:55:39,558 - mmpose - INFO - Epoch(val) [40][625]	AP: 0.5767, AP .5: 0.7974, AP .75: 0.6345, AP (M): 0.4925, AP (L): 0.6985, AR: 0.6207, AR .5: 0.8267, AR .75: 0.6721, AR (M): 0.5322, AR (L): 0.7457
+2023-01-20 01:04:49,511 - mmpose - INFO - Epoch [41][500/2004]	lr: 1.000e-04, eta: 2 days, 0:45:40, time: 1.100, data_time: 0.473, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0008, loss: 0.0019
+2023-01-20 01:13:52,026 - mmpose - INFO - Epoch [41][1000/2004]	lr: 1.000e-04, eta: 2 days, 0:36:05, time: 1.085, data_time: 0.469, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 01:22:59,436 - mmpose - INFO - Epoch [41][1500/2004]	lr: 1.000e-04, eta: 2 days, 0:26:49, time: 1.095, data_time: 0.484, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 01:32:09,965 - mmpose - INFO - Epoch [41][2000/2004]	lr: 1.000e-04, eta: 2 days, 0:17:45, time: 1.101, data_time: 0.485, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 01:41:19,602 - mmpose - INFO - Epoch [42][500/2004]	lr: 1.000e-04, eta: 2 days, 0:08:00, time: 1.090, data_time: 0.466, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 01:50:27,198 - mmpose - INFO - Epoch [42][1000/2004]	lr: 1.000e-04, eta: 1 day, 23:58:46, time: 1.095, data_time: 0.472, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 01:59:35,595 - mmpose - INFO - Epoch [42][1500/2004]	lr: 1.000e-04, eta: 1 day, 23:49:35, time: 1.097, data_time: 0.479, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 02:08:47,424 - mmpose - INFO - Epoch [42][2000/2004]	lr: 1.000e-04, eta: 1 day, 23:40:36, time: 1.104, data_time: 0.469, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 02:18:06,196 - mmpose - INFO - Epoch [43][500/2004]	lr: 1.000e-04, eta: 1 day, 23:31:27, time: 1.109, data_time: 0.474, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
+2023-01-20 02:27:13,201 - mmpose - INFO - Epoch [43][1000/2004]	lr: 1.000e-04, eta: 1 day, 23:22:11, time: 1.094, data_time: 0.469, memory: 12642, loss_hms: 0.0005, loss_ofs: 0.0006, loss_oks: 0.0007, loss: 0.0018
